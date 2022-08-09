@@ -5,7 +5,9 @@ function Homepage() {
         className="Hero"
         class="h-full w-full flex flex-col justify-center items-center gap-5"
       >
-        <h3 class="text-8xl text-white  ">Night Market</h3>
+        <h3 class="text-9xl text-white font-blaka  tracking-[0.010em]  ">
+          Night Market
+        </h3>
         <div>
           <p class="text-2xl text-white ">
             The best place to buy your fornite cosmetics.
