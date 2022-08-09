@@ -6,6 +6,8 @@ module.exports = {
       fontFamily: {
         faster: ["Faster One", "cursive"],
         blaka: ["Blaka", "cursive"],
+        kelly: ["Kelly Slab", "cursive"],
+        chinese: ["ZCOOL QingKe HuangYou", "cursive"],
       },
     },
   },
