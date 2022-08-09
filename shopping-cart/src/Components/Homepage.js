@@ -1,3 +1,9 @@
+import { useState } from "react";
+import { useEffect } from "react";
+import React from "react";
+import Typical from "react-typical";
+import Typewriter from "typewriter-effect";
+
 function Homepage() {
   return (
     <div class="h-screen bg-[url('/home/aaron/odin-projects/shopping-cart/shopping-cart/src/bg.jpg')]">
@@ -9,8 +15,20 @@ function Homepage() {
           Night Market
         </h3>
         <div>
-          <p id="desc" class="text-2xl text-white font-chinese tracking-wider">
-            The best place to buy your fornite cosmetics
+          <p id="desc" class="text-xl text-white font-mono  ">
+            The best place to find the latest
+            {/* <Typical
+              loop={Infinity}
+              wrapper="p"
+              steps={["Skins", 5000, "Pickaxes", 5000, "Emotes", 5000]}
+            /> */}
+            <Typewriter
+              options={{
+                strings: ["Cosmetics", "Unreleased Items", "& More"],
+                autoStart: true,
+                loop: true,
+              }}
+            />
           </p>
 
           <div class="font-chinese text-xl mt-14  flex col text-white gap-[50px] justify-center items-center w-full">
