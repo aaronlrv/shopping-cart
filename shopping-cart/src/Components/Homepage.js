@@ -2,13 +2,21 @@ function Homepage() {
   return (
     <div class="h-screen bg-[url('/home/aaron/odin-projects/shopping-cart/shopping-cart/src/bg.jpg')]">
       <div
-        className="Title"
+        className="Hero"
         class="h-full w-full flex flex-col justify-center items-center gap-5"
       >
-        <h3 class="text-7xl text-white ">Fortnite Webpage Name</h3>
-        <p class="text-2xl text-white ">
-          The best place to buy your fornite cosmetics.
-        </p>
+        <h3 class="text-8xl text-white  ">Night Market</h3>
+        <div>
+          <p class="text-2xl text-white ">
+            The best place to buy your fornite cosmetics.
+          </p>
+
+          <div class=" mt-10  flex col text-white gap-[50px] justify-center items-center w-full">
+            <p>About</p>
+            <p>Daily Shop</p>
+            <p>Popular Items</p>
+          </div>
+        </div>
       </div>
     </div>
   );
