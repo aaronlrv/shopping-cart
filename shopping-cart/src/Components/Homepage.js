@@ -31,7 +31,7 @@ function Homepage() {
           </p>
 
           <div class="font-chinese text-xl mt-14  flex col text-white gap-[50px] justify-center items-center w-full shadow-2xl">
-            <ul>
+            <ul class="flex col gap-[50px]">
               <Link to="/unreleased">
                 <li class="hover:animate-pulse">Unreleased Items</li>
               </Link>
