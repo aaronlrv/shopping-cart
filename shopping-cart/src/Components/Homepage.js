@@ -20,11 +20,6 @@ function Homepage() {
             class="text-2xl text-white font-chinese tracking-widest  "
           >
             The best place to find the latest
-            {/* <Typical
-              loop={Infinity}
-              wrapper="p"
-              steps={["Skins", 5000, "Pickaxes", 5000, "Emotes", 5000]}
-            /> */}
             <Typewriter
               options={{
                 strings: ["Cosmetics", "Unreleased Items", "& More"],
