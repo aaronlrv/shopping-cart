@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import React from "react";
 import Typical from "react-typical";
 import Typewriter from "typewriter-effect";
+import { Link } from "react-router-dom";
 
 function Homepage() {
   return (
@@ -30,9 +31,17 @@ function Homepage() {
           </p>
 
           <div class="font-chinese text-xl mt-14  flex col text-white gap-[50px] justify-center items-center w-full shadow-2xl">
-            <p class="hover:animate-pulse">Unreleased Items</p>
-            <p class="hover:animate-pulse">Daily Shop</p>
-            <p class="hover:animate-pulse">Popular Items</p>
+            <ul>
+              <Link to="/unreleased">
+                <li class="hover:animate-pulse">Unreleased Items</li>
+              </Link>
+              <Link to="/shop">
+                <li class="hover:animate-pulse">Daily Shop</li>
+              </Link>
+              <Link to="/popular">
+                <li class="hover:animate-pulse">Popular Items</li>
+              </Link>
+            </ul>
           </div>
         </div>
       </div>
