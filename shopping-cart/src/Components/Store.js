@@ -50,8 +50,15 @@ function Store() {
         <p> hi</p>
       </div>
 
-      <div class="bg-gray-500">
-        <p> market content</p>
+      <div class="border border-solid border-red-200">
+        <div
+          className="header"
+          class="flex w-full justify-start items-start border-solid border-b-2 shadow-sm"
+        >
+          <p class="font-oswald tracking-widest text-2xl pt-8 pl-8 mb-2">
+            Items
+          </p>
+        </div>
       </div>
     </div>
   );
