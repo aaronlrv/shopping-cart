@@ -24,14 +24,16 @@ function Store() {
     <div class=" grid grid-rows-[80px,1fr] grid-cols-[0.25fr,1fr] ">
       <div
         className="header-nav"
-        class="bg-[rgba(112,94,191,0.5)] h-20 shadow-lg col-span-2"
+        class="  bg-[#1a181aff] h-20 shadow-lg col-span-2"
       >
         <div class="flex flex-row items-center w-full h-full">
           <div
             className="header-text"
             class="h-full w-full flex justify-center items-center"
           >
-            <p class="font-oswald text-3xl tracking-wider">Daily Store</p>
+            <p class="font-oswald text-3xl tracking-wider text-white">
+              Daily Store
+            </p>
           </div>
           <div classname="links" class="pr-12 h-full w-auto mt-0">
             <ul class="flex flex-row gap-20  justify-center items-center h-full text-3xl">
@@ -48,30 +50,30 @@ function Store() {
         </div>
       </div>
 
-      <div>
+      <div class="bg-[#0c0c0fff] ">
         <p> hi</p>
       </div>
 
-      <div className="parent-items" class="border border-solid border-red-200">
+      <div className="parent-items" class=" bg-[#0c0c0fff] ">
         <div
           className="header"
-          class="flex w-full justify-start items-start border-solid border-b-2 shadow-sm"
+          class="flex w-full justify-start items-start shadow-sm"
         >
-          <p class="font-oswald tracking-widest text-2xl pt-8 pl-8 mb-2">
+          <p class="font-oswald tracking-widest text-2xl pt-8 pl-8 mb-2 text-white">
             Items
           </p>
         </div>
 
         <div
           className="items"
-          class="grid grid-rows-[repeat(3,18rem)] auto-rows-[18rem] grid-cols-3"
+          class="grid grid-rows-[repeat(3,18rem)] gap-5 auto-rows-[18rem] grid-cols-3"
         >
           {items.map((x) => {
             console.log(x);
             return (
               <div
                 className="card"
-                class=" border-solid border-slate-300 h-72 gap-6 m-5 border-2 grid grid-rows-[100,100]   grid-cols-2 shadow-xl transition ease-in-out delay-100  hover:scale-105 duration-300 bg-slate-700 "
+                class="h-72 gap-6 m-5 grid grid-rows-[100,100] grid-cols-2 shadow-xl transition ease-in-out delay-100  hover:scale-105 duration-300 bg-[#1f2128]  "
               >
                 <div class="h-full flex justify-start items-center row-span-2">
                   <img
@@ -81,16 +83,19 @@ function Store() {
                   />
                 </div>
                 <div class="flex flex-col justify-center items-center">
-                  <p class="font-chinese text-3xl tracking-wider">
+                  <p class="font-chinese text-3xl tracking-wider text-white">
                     {x.item.name}
                   </p>
-                  <p>{x.item.description}</p>
+                  <p class="text-blue-200">{x.item.description}</p>
                 </div>
                 <div class="flex justify-center items-center">
-                  <a href="#_" class="relative inline-block text-lg group">
-                    <span class="relative z-10 block px-5 py-3 overflow-hidden font-medium leading-tight text-gray-800 transition-colors duration-300 ease-out border-2 border-gray-900 rounded-lg group-hover:text-white">
+                  <a
+                    href={x.itemId}
+                    class="relative inline-block text-lg group"
+                  >
+                    <span class="relative z-10 block px-5 py-3 overflow-hidden font-medium leading-tight text-gray-800 transition-colors duration-300 ease-out border-2 border-[#272AB0] 0 rounded-lg group-hover:text-white">
                       <span class="absolute inset-0 w-full h-full px-5 py-3 rounded-lg bg-gray-50"></span>
-                      <span class="absolute left-0 w-48 h-48 -ml-2 transition-all duration-300 origin-top-right -rotate-90 -translate-x-full translate-y-12 bg-gray-900 group-hover:-rotate-180 ease"></span>
+                      <span class="absolute left-0 w-48 h-48 -ml-2 transition-all duration-300 origin-top-right -rotate-90 -translate-x-full translate-y-12 bg-[#272AB0] group-hover:-rotate-180 ease"></span>
                       <span class="relative">View More</span>
                     </span>
                     <span
