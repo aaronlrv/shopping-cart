@@ -50,7 +50,7 @@ function Store() {
         <p> hi</p>
       </div>
 
-      <div class="border border-solid border-red-200">
+      <div className="parent-items" class="border border-solid border-red-200">
         <div
           className="header"
           class="flex w-full justify-start items-start border-solid border-b-2 shadow-sm"
@@ -58,6 +58,32 @@ function Store() {
           <p class="font-oswald tracking-widest text-2xl pt-8 pl-8 mb-2">
             Items
           </p>
+        </div>
+
+        <div
+          className="items"
+          class="grid grid-rows-[repeat(3,18rem)] grid-cols-3"
+        >
+          <div
+            className="card"
+            class=" border-solid border-slate-300 h-72 gap-6 m-5 border-2 grid grid-rows-[100,100] auto-rows-[100px]  grid-cols-2 shadow-xl "
+          >
+            <div class="h-full flex justify-start items-center row-span-2">
+              <img
+                class="h-48 w-auto "
+                src="https://dropin-bucket.mativecdn.com/cosmetics/br/pickaxe_id_558_smallfrymale_ybd34/icon.png"
+                alt="fortnite skin"
+              />
+            </div>
+            <div class="flex justify-center items-center">
+              <p class="font-chinese text-3xl tracking-wider"> Item name</p>
+            </div>
+            <div class="flex justify-center items-center">
+              <button class="border-solid border-2 border-black w-48 font-chinese text-3xl tracking-wider">
+                View more
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
