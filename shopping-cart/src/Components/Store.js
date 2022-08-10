@@ -57,33 +57,42 @@ function Store() {
           </p>
         </div>
 
-        <form id="userSelection">
-          <label htmlFor="search" class="text-white">
-            Search
-          </label>
-          <input id="search" />
-          <label htmlFor="rarity" class="text-white">
-            Rarity:
-          </label>
-          <select form="userSelection" id="rarity">
-            <option value="not selected">Not Selected</option>
-            <option value="rare">Rare</option>
-            <option value="uncommon">Uncommon</option>
-            <option value="epic">Epic</option>
-            <option value="legendary">Legendary</option>
-            <option value="mythic">Mythic</option>
-          </select>
-          <label htmlFor="type" class="text-white">
-            Rarity:
-          </label>
-          <select form="userSelection" id="type">
-            <option value="not selected">Not Selected</option>
-            <option value="emote">Emote</option>
-            <option value="outfit">Outfit</option>
-            <option value="wrap">Wrap</option>
-            <option value="glider">Glider</option>
-            <option value="pickaxe">Pickaxe</option>
-          </select>
+        <form
+          class="flex flex-col justify-start items-start gap-3"
+          id="userSelection"
+        >
+          <div>
+            <label htmlFor="search" class="text-white w-12 inline-block pr-10">
+              Search
+            </label>
+            <input id="search" />
+          </div>
+          <div>
+            <label htmlFor="rarity" class="text-white w-12 inline-block">
+              Rarity:
+            </label>
+            <select form="userSelection" id="rarity">
+              <option value="not selected">Not Selected</option>
+              <option value="rare">Rare</option>
+              <option value="uncommon">Uncommon</option>
+              <option value="epic">Epic</option>
+              <option value="legendary">Legendary</option>
+              <option value="mythic">Mythic</option>
+            </select>
+          </div>
+          <div>
+            <label htmlFor="type" class="text-white w-12 inline-block">
+              Type:
+            </label>
+            <select form="userSelection" id="type">
+              <option value="not selected">Not Selected</option>
+              <option value="emote">Emote</option>
+              <option value="outfit">Outfit</option>
+              <option value="wrap">Wrap</option>
+              <option value="glider">Glider</option>
+              <option value="pickaxe">Pickaxe</option>
+            </select>
+          </div>
         </form>
       </div>
 
