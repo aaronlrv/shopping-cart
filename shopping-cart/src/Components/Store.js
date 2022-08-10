@@ -20,12 +20,29 @@ function Store() {
 
   return (
     <div class="h-screen">
-      <div className="header" class="bg-[rgba(112,94,191,0.5)] h-20 shadow-lg">
-        <div
-          className="header-text"
-          class="h-full w-full flex justify-center items-center"
-        >
-          <p class="font-oswald text-3xl tracking-wider">Daily Store</p>
+      <div
+        className="header-nav"
+        class="bg-[rgba(112,94,191,0.5)] h-20 shadow-lg"
+      >
+        <div class="flex flex-row items-center w-full h-full">
+          <div
+            className="header-text"
+            class="h-full w-full flex justify-center items-center"
+          >
+            <p class="font-oswald text-3xl tracking-wider">Daily Store</p>
+          </div>
+          <div classname="links" class="pr-12 h-full w-auto mt-0">
+            <ul class="flex flex-row gap-20  justify-center items-center h-full text-3xl">
+              <li>
+                <div class="h-full items-center ">
+                  <ion-icon name="cart-sharp"></ion-icon>
+                </div>
+              </li>
+              <li>
+                <ion-icon name="menu-sharp"></ion-icon>{" "}
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
