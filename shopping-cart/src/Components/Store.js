@@ -51,7 +51,40 @@ function Store() {
       </div>
 
       <div class="bg-[#0c0c0fff] ">
-        <p> hi</p>
+        <div class="flex w-full justify-start items-start shadow-sm ">
+          <p class="text-white font-oswald tracking-widest text-2xl pt-8 pl-8 mb-2">
+            Filters
+          </p>
+        </div>
+
+        <form id="userSelection">
+          <label htmlFor="search" class="text-white">
+            Search
+          </label>
+          <input id="search" />
+          <label htmlFor="rarity" class="text-white">
+            Rarity:
+          </label>
+          <select form="userSelection" id="rarity">
+            <option value="not selected">Not Selected</option>
+            <option value="rare">Rare</option>
+            <option value="uncommon">Uncommon</option>
+            <option value="epic">Epic</option>
+            <option value="legendary">Legendary</option>
+            <option value="mythic">Mythic</option>
+          </select>
+          <label htmlFor="type" class="text-white">
+            Rarity:
+          </label>
+          <select form="userSelection" id="type">
+            <option value="not selected">Not Selected</option>
+            <option value="emote">Emote</option>
+            <option value="outfit">Outfit</option>
+            <option value="wrap">Wrap</option>
+            <option value="glider">Glider</option>
+            <option value="pickaxe">Pickaxe</option>
+          </select>
+        </form>
       </div>
 
       <div className="parent-items" class=" bg-[#0c0c0fff] ">
