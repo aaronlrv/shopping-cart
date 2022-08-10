@@ -19,10 +19,10 @@ function Store() {
   }, []);
 
   return (
-    <div class="h-screen">
+    <div class="h-screen grid grid-rows-[80px,1fr] grid-cols-[0.25fr,1fr] ">
       <div
         className="header-nav"
-        class="bg-[rgba(112,94,191,0.5)] h-20 shadow-lg"
+        class="bg-[rgba(112,94,191,0.5)] h-20 shadow-lg col-span-2"
       >
         <div class="flex flex-row items-center w-full h-full">
           <div
@@ -44,6 +44,14 @@ function Store() {
             </ul>
           </div>
         </div>
+      </div>
+
+      <div>
+        <p> hi</p>
+      </div>
+
+      <div class="bg-gray-500">
+        <p> market content</p>
       </div>
     </div>
   );
