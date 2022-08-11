@@ -10,6 +10,8 @@ function RouteSwitch() {
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/shop" element={<Store />} />
+        <Route path="/shop/:id" element={<Homepage />} />
+
         <Route path="/unreleased" element={<Unreleased />} />
         <Route path="/popular" element={<Popular />} />
       </Routes>
