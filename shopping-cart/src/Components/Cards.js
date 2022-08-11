@@ -42,7 +42,7 @@ function Cards({ type, rarity, search, items }) {
     });
   } else if (rarity !== undefined && type !== undefined) {
     return items.map((x) => {
-      if (x.item.name === search) {
+      if (x.item.rarity === rarity && x.item.type === type) {
         console.log(x);
         return (
           <div
