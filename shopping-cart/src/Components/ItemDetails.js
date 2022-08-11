@@ -43,9 +43,12 @@ function ItemDetails({ match }) {
       </div>
 
       <div class=" bg-[#0c0c0fff]">
-        <div class="mt-10 pl-10 h-32 flex flex-col justify-center items-start">
+        <div class="mt-28 pl-10 h-36 flex flex-col justify-center items-start">
           <h3 class="text-white font-oswald text-8xl">Item Name</h3>
           <p class="text-white text-3xl font-oswald pt-2">Item description</p>
+          <p class="text-white text-xl font-oswald pt-2">Average Rating:</p>
+          <p class="text-white text-xl font-oswald pt-2">Type:</p>
+          <p class="text-white text-xl font-oswald pt-2">Series</p>
         </div>
       </div>
     </div>
