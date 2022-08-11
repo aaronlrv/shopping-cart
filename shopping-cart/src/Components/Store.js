@@ -7,6 +7,7 @@ function Store() {
   let [type, setType] = useState();
   let [search, setSearch] = useState();
   let [rarity, setRarity] = useState();
+  let [refresh, setRefresh] = useState();
 
   useEffect(() => {
     async function getItems() {
@@ -43,7 +44,7 @@ function Store() {
             <ul class="flex flex-row gap-20  justify-center items-center h-full text-3xl">
               <li>
                 <div class="h-full items-center ">
-                  <ion-icon name="cart-sharp"></ion-icon>
+                  <ion-icon name="cart-outline"></ion-icon>
                 </div>
               </li>
               <li>
@@ -108,7 +109,7 @@ function Store() {
         </form>
       </div>
 
-      <div className="parent-items" class=" bg-[#0c0c0fff] ">
+      <div className="parent-items" class="bg-[#0c0c0fff] pb-10">
         <div
           className="header"
           class="flex w-full justify-start items-start shadow-sm"
