@@ -31,11 +31,23 @@ function ItemDetails({ match }) {
 
       <div className="photo" class=" bg-[rgba(39,42,176,0.2)] row-span-2">
         <div class="flex justify-center items-center h-full">
-          <div class="h-[40rem] bg-slate-200 w-[37rem] shadow-2xl border-2 border-black border-opacity-20 rounded-lg "></div>
+          <div class="h-[40rem] bg-slate-200 w-[37rem] shadow-2xl border-2 border-black border-opacity-20 rounded-lg ">
+            <div class="h-full flex justify-center items-center">
+              <img
+                src="https://dropin-bucket.mativecdn.com/cosmetics/br/cid_a_379_athena_commando_f_vampirehunter/icon.png"
+                alt="product"
+              ></img>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class=" bg-[#0c0c0fff]"></div>
+      <div class=" bg-[#0c0c0fff]">
+        <div class="mt-10 pl-10 h-32 flex flex-col justify-center items-start">
+          <h3 class="text-white font-oswald text-8xl">Item Name</h3>
+          <p class="text-white text-3xl font-oswald pt-2">Item description</p>
+        </div>
+      </div>
     </div>
   );
 }
