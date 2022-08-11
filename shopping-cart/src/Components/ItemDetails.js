@@ -34,7 +34,8 @@ function ItemDetails({ match }) {
           <div class="h-[40rem] bg-slate-200 w-[37rem] shadow-2xl border-2 border-black border-opacity-20 rounded-lg "></div>
         </div>
       </div>
-      <div></div>
+
+      <div class=" bg-[#0c0c0fff]"></div>
     </div>
   );
 }
