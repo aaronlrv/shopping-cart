@@ -50,6 +50,10 @@ function ItemDetails({ match }) {
           <p class="text-white text-xl font-oswald pt-2">Type:</p>
           <p class="text-white text-xl font-oswald pt-2">Series</p>
         </div>
+
+        <div class="flex mt-28 pl-10 h-36">
+          <p class="text-white font-oswald text-5xl">500 VBUCKS</p>
+        </div>
       </div>
     </div>
   );
