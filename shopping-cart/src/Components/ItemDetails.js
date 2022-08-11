@@ -1,4 +1,25 @@
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+
 function ItemDetails({ match }) {
+  let [item, setItem] = useState([]);
+  let id = useParams().id;
+
+  useEffect(() => {
+    async function gatherData() {
+      console.log("id", id);
+      let data = await fetch(
+        `https://fortnite-api.theapinetwork.com/item/get?id=${id}`,
+        { mode: "cors" }
+      );
+      console.log(data);
+      let dataJson = await data.json();
+      setItem(dataJson);
+    }
+    gatherData();
+  }, []);
+
+  //   return item.map((x) => {
   return (
     <div class="h-screen grid grid-rows-[80px,1fr] grid-cols-[0.66fr,1fr]">
       <div
@@ -44,15 +65,25 @@ function ItemDetails({ match }) {
 
       <div class=" bg-[#0c0c0fff] pl-[2.2rem]">
         <div class="mt-28 h-36 flex flex-col justify-center items-start">
-          <h3 class="text-white font-oswald text-8xl">Item Name</h3>
-          <p class="text-white text-3xl font-oswald pt-2">Item description</p>
-          <p class="text-white text-xl font-oswald pt-2">Average Rating:</p>
-          <p class="text-white text-xl font-oswald pt-2">Type:</p>
-          <p class="text-white text-xl font-oswald pt-2">Series</p>
+          <h3 class="text-white font-oswald text-8xl">{item.data.item.name}</h3>
+          <p class="text-white text-3xl font-oswald pt-2">
+            {item.data.item.description}
+          </p>
+          <p class="text-white text-xl font-oswald pt-2">
+            Rarity: {item.data.item.rarity}
+          </p>
+          <p class="text-white text-xl font-oswald pt-2">
+            Type: {item.data.item.type}
+          </p>
+          <p class="text-white text-xl font-oswald pt-2">
+            Rating: {item.data.item.ratings.avgStars}
+          </p>
         </div>
 
         <div class="flex mt-28 h-36">
-          <p class="text-white font-oswald text-5xl">500 VBUCKS</p>
+          <p class="text-white font-oswald text-5xl">
+            {item.data.item.cost} VBUCKS
+          </p>
         </div>
 
         <div class="flex justify-start- items-center ">
