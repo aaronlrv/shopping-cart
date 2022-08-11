@@ -42,8 +42,8 @@ function ItemDetails({ match }) {
         </div>
       </div>
 
-      <div class=" bg-[#0c0c0fff]">
-        <div class="mt-28 pl-10 h-36 flex flex-col justify-center items-start">
+      <div class=" bg-[#0c0c0fff] pl-[2.2rem]">
+        <div class="mt-28 h-36 flex flex-col justify-center items-start">
           <h3 class="text-white font-oswald text-8xl">Item Name</h3>
           <p class="text-white text-3xl font-oswald pt-2">Item description</p>
           <p class="text-white text-xl font-oswald pt-2">Average Rating:</p>
@@ -51,8 +51,22 @@ function ItemDetails({ match }) {
           <p class="text-white text-xl font-oswald pt-2">Series</p>
         </div>
 
-        <div class="flex mt-28 pl-10 h-36">
+        <div class="flex mt-28 h-36">
           <p class="text-white font-oswald text-5xl">500 VBUCKS</p>
+        </div>
+
+        <div class="flex justify-start- items-center ">
+          <a
+            href="#_"
+            class="relative inline-flex items-center justify-start inline-block px-5 py-3 overflow-hidden font-bold rounded-full group"
+          >
+            <span class="w-36 h-36 rotate-45 translate-x-12 -translate-y-2 absolute left-0 top-0 bg-white opacity-[3%]"></span>
+            <span class="absolute top-0 left-0 w-48 h-48 -mt-1 transition-all duration-500 ease-in-out rotate-45 -translate-x-56 -translate-y-24 bg-white opacity-100 group-hover:-translate-x-8"></span>
+            <span class="relative w-full text-left text-white transition-colors duration-200 ease-in-out group-hover:text-gray-900">
+              Add to cart
+            </span>
+            <span class="absolute inset-0 border-2 border-white rounded-full"></span>
+          </a>
         </div>
       </div>
     </div>
