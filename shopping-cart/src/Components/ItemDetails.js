@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 function ItemDetails({ match }) {
   let [item, setItem] = useState(null);
@@ -33,9 +33,11 @@ function ItemDetails({ match }) {
               className="header-text"
               class="h-full w-full flex justify-center items-center"
             >
-              <p class="font-oswald text-3xl tracking-wider text-white">
-                Daily Store
-              </p>
+              <Link to="/shop">
+                <p class="font-oswald text-3xl tracking-wider text-white">
+                  Daily Store
+                </p>
+              </Link>
             </div>
             <div classname="links" class="pr-12 h-full w-auto mt-0">
               <ul class="flex flex-row gap-20  justify-center items-center h-full text-3xl">

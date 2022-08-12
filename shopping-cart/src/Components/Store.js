@@ -1,5 +1,6 @@
 import { render } from "@testing-library/react";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import Cards from "./Cards";
 
 function Store() {
@@ -36,9 +37,11 @@ function Store() {
             className="header-text"
             class="h-full w-full flex justify-center items-center"
           >
-            <p class="font-oswald text-3xl tracking-wider text-white">
-              Daily Store
-            </p>
+            <Link to="/">
+              <p class="font-oswald text-3xl tracking-wider text-white">
+                Daily Store
+              </p>
+            </Link>
           </div>
           <div classname="links" class="pr-12 h-full w-auto mt-0">
             <ul class="flex flex-row gap-20  justify-center items-center h-full text-3xl">
