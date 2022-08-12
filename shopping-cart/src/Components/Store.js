@@ -66,14 +66,18 @@ function Store() {
         </div>
 
         <form
-          class="flex flex-col justify-start items-start gap-3"
+          class="flex flex-col justify-start items-start gap-3 pl-8"
           id="userSelection"
         >
           <div>
             <label htmlFor="search" class="text-white w-12 inline-block pr-10">
               Search
             </label>
-            <input id="search" onChange={(e) => setSearch(e.target.value)} />
+            <input
+              id="search"
+              class="ml-5"
+              onChange={(e) => setSearch(e.target.value)}
+            />
           </div>
           <div>
             <label htmlFor="rarity" class="text-white w-12 inline-block">
@@ -82,6 +86,7 @@ function Store() {
             <select
               form="userSelection"
               id="rarity"
+              class="ml-5"
               onChange={(e) => setRarity(e.target.value)}
             >
               <option value="not selected">Not Selected</option>
@@ -99,6 +104,7 @@ function Store() {
             <select
               form="userSelection"
               id="type"
+              class="ml-5"
               onChange={(e) => setType(e.target.value)}
             >
               <option value="not selected">Not Selected</option>
