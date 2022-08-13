@@ -92,7 +92,7 @@ function ItemDetails({ match }) {
             </div>
 
             <div class="flex mt-28 h-36">
-              <p class="text-white font-oswald text-5xl">
+              <p class="font-oswald text-5xl dark:text-white ">
                 {item.data.item.cost} VBUCKS
               </p>
             </div>
