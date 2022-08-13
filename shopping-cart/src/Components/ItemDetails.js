@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import useDarkMode from "./darkMode";
 
 function ItemDetails({ match }) {
   let [item, setItem] = useState(null);
-  let [dark, setDark] = useState("dark");
   let id = useParams().id;
+  let [setTheme, colorTheme] = useDarkMode();
 
   useEffect(() => {
     async function gatherData() {
@@ -36,6 +37,9 @@ function ItemDetails({ match }) {
                 className="header-text"
                 class="h-full w-full flex justify-center items-center"
               >
+                <button class="bg-white" onClick={() => setTheme(colorTheme)}>
+                  set theme
+                </button>
                 <Link to="/shop">
                   <p class="font-oswald text-3xl tracking-wider text-white">
                     Daily Store
@@ -68,7 +72,7 @@ function ItemDetails({ match }) {
               </div>
             </div>
           </div>
-          <div class="pl-[2.2rem] bg-purple-400 dark:bg-[#0c0c0fff] ">
+          <div class="pl-[2.2rem] bg-[rgba(57,59,140,0.4)] dark:bg-[#0c0c0fff] ">
             <div class="mt-28 h-36 flex flex-col justify-center items-start">
               <h3 class="text-white font-oswald text-8xl">
                 {item.data.item.name}
