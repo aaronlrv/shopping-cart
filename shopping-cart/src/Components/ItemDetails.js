@@ -74,19 +74,19 @@ function ItemDetails({ match }) {
           </div>
           <div class="pl-[2.2rem] bg-[rgba(57,59,140,0.4)] dark:bg-[#0c0c0fff] ">
             <div class="mt-28 h-36 flex flex-col justify-center items-start">
-              <h3 class="text-white font-oswald text-8xl">
+              <h3 class="font-oswald text-8xl dark:text-white ">
                 {item.data.item.name}
               </h3>
-              <p class="text-white text-3xl font-oswald pt-2">
+              <p class="font-oswald text-3xl dark:text-white ">
                 {item.data.item.description}
               </p>
-              <p class="text-white text-xl font-oswald pt-2">
+              <p class="font-oswald text-xl dark:text-white ">
                 Rarity: {item.data.item.rarity}
               </p>
-              <p class="text-white text-xl font-oswald pt-2">
+              <p class="font-oswald text-xl dark:text-white ">
                 Type: {item.data.item.type}
               </p>
-              <p class="text-white text-xl font-oswald pt-2">
+              <p class="font-oswald text-xl dark:text-white ">
                 Rating: {item.data.item.ratings.avgStars}
               </p>
             </div>
