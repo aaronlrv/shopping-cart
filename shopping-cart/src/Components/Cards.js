@@ -14,7 +14,7 @@ function Cards({ type, rarity, search, items, theme }) {
               <Link to={`/shop/${x.itemId}`}>
                 <div
                   className="card"
-                  class="h-72 gap-6 m-5 grid grid-rows-[100,100] grid-cols-2 shadow-xl transition ease-in-out delay-100  hover:scale-105 duration-300 bg-[#1f2128] dark:bg-purple-500   "
+                  class="h-72 gap-6 m-5 grid grid-rows-[100,100] grid-cols-2 shadow-xl transition ease-in-out delay-100  hover:scale-105 duration-300 bg-slate-100  "
                 >
                   <div class="h-full flex justify-start items-center row-span-2">
                     <img
@@ -24,10 +24,10 @@ function Cards({ type, rarity, search, items, theme }) {
                     />
                   </div>
                   <div class="flex flex-col justify-center items-center">
-                    <p class="font-chinese text-3xl tracking-wider text-white">
+                    <p class="font-chinese text-3xl tracking-wider text-black">
                       {x.item.name}
                     </p>
-                    <p class="text-blue-200">{x.item.description}</p>
+                    <p class="text-">{x.item.description}</p>
                   </div>
                   <div class="flex justify-center items-center">
                     <a
@@ -59,7 +59,7 @@ function Cards({ type, rarity, search, items, theme }) {
               <Link to={`/shop/${x.itemId}`}>
                 <div
                   className="card"
-                  class="h-72 gap-6 m-5 grid grid-rows-[100,100] grid-cols-2 shadow-xl transition ease-in-out delay-100  hover:scale-105 duration-300 bg-[#1f2128]  "
+                  class="h-72 gap-6 m-5 grid grid-rows-[100,100] grid-cols-2 shadow-xl transition ease-in-out delay-100  hover:scale-105 duration-300 bg-slate-100  "
                 >
                   <div class="h-full flex justify-start items-center row-span-2">
                     <img
@@ -69,10 +69,10 @@ function Cards({ type, rarity, search, items, theme }) {
                     />
                   </div>
                   <div class="flex flex-col justify-center items-center">
-                    <p class="font-chinese text-3xl tracking-wider text-white">
+                    <p class="font-chinese text-3xl tracking-wider text-black">
                       {x.item.name}
                     </p>
-                    <p class="text-blue-200">{x.item.description}</p>
+                    <p class="text-">{x.item.description}</p>
                   </div>
                   <div class="flex justify-center items-center">
                     <a
@@ -104,7 +104,7 @@ function Cards({ type, rarity, search, items, theme }) {
               <Link to={`/shop/${x.itemId}`}>
                 <div
                   className="card"
-                  class="h-72 gap-6 m-5 grid grid-rows-[100,100] grid-cols-2 shadow-xl transition ease-in-out delay-100  hover:scale-105 duration-300 bg-[#1f2128]  "
+                  class="h-72 gap-6 m-5 grid grid-rows-[100,100] grid-cols-2 shadow-xl transition ease-in-out delay-100  hover:scale-105 duration-300 bg-slate-100  "
                 >
                   <div class="h-full flex justify-start items-center row-span-2">
                     <img
@@ -114,10 +114,10 @@ function Cards({ type, rarity, search, items, theme }) {
                     />
                   </div>
                   <div class="flex flex-col justify-center items-center">
-                    <p class="font-chinese text-3xl tracking-wider text-white">
+                    <p class="font-chinese text-3xl tracking-wider text-black">
                       {x.item.name}
                     </p>
-                    <p class="text-blue-200">{x.item.description}</p>
+                    <p class="text-">{x.item.description}</p>
                   </div>
                   <div class="flex justify-center items-center">
                     <a
@@ -149,7 +149,7 @@ function Cards({ type, rarity, search, items, theme }) {
               <Link to={`/shop/${x.itemId}`}>
                 <div
                   className="card"
-                  class="h-72 gap-6 m-5 grid grid-rows-[100,100] grid-cols-2 shadow-xl transition ease-in-out delay-100  hover:scale-105 duration-300 bg-[#1f2128]  "
+                  class="h-72 gap-6 m-5 grid grid-rows-[100,100] grid-cols-2 shadow-xl transition ease-in-out delay-100  hover:scale-105 duration-300 bg-slate-100  "
                 >
                   <div class="h-full flex justify-start items-center row-span-2">
                     <img
@@ -159,10 +159,10 @@ function Cards({ type, rarity, search, items, theme }) {
                     />
                   </div>
                   <div class="flex flex-col justify-center items-center">
-                    <p class="font-chinese text-3xl tracking-wider text-white">
+                    <p class="font-chinese text-3xl tracking-wider text-black">
                       {x.item.name}
                     </p>
-                    <p class="text-blue-200">{x.item.description}</p>
+                    <p class="text-">{x.item.description}</p>
                   </div>
                   <div class="flex justify-center items-center">
                     <a
@@ -193,7 +193,7 @@ function Cards({ type, rarity, search, items, theme }) {
             <Link to={`/shop/${x.itemId}`}>
               <div
                 className="card"
-                class="h-72 gap-6 m-5 grid grid-rows-[100,100] grid-cols-2 shadow-xl transition ease-in-out delay-100  hover:scale-105 duration-300 bg-orange-800  "
+                class="h-72 gap-6 m-5 grid grid-rows-[100,100] grid-cols-2 shadow-xl transition ease-in-out delay-100  hover:scale-105 duration-300 bg-slate-100  "
               >
                 <div class="h-full flex justify-start items-center row-span-2">
                   <img
@@ -203,10 +203,10 @@ function Cards({ type, rarity, search, items, theme }) {
                   />
                 </div>
                 <div class="flex flex-col justify-center items-center">
-                  <p class="font-chinese text-3xl tracking-wider text-white">
+                  <p class="font-chinese text-3xl tracking-wider text-black">
                     {x.item.name}
                   </p>
-                  <p class="text-blue-200">{x.item.description}</p>
+                  <p class="text-">{x.item.description}</p>
                 </div>
                 <div class="flex justify-center items-center">
                   <a
