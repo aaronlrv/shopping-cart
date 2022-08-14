@@ -30,7 +30,7 @@ function ItemDetails({ match }) {
         <div class=" h-screen grid grid-rows-[80px,1fr] grid-cols-[0.66fr,1fr]">
           <div
             className="header-nav"
-            class="h-20 shadow-lg col-span-2 bg-white"
+            class="h-20 shadow-lg col-span-2 bg-white dark:bg-[#1a181aff]             "
           >
             <div class="flex flex-row items-center w-full h-full">
               <div
@@ -38,7 +38,7 @@ function ItemDetails({ match }) {
                 class="h-full w-full flex justify-center items-center"
               >
                 <Link to="/shop">
-                  <p class="font-oswald text-3xl tracking-wider text-white">
+                  <p class="font-oswald text-3xl tracking-wider text-black dark:text-white">
                     Daily Store
                   </p>
                 </Link>
@@ -48,7 +48,10 @@ function ItemDetails({ match }) {
                   <li>
                     <div onClick={() => setTheme(colorTheme)}>
                       {colorTheme === "light" && (
-                        <ion-icon name="moon-outline"></ion-icon>
+                        <ion-icon
+                          class="text-white"
+                          name="moon-outline"
+                        ></ion-icon>
                       )}
 
                       {colorTheme === "dark" && (
@@ -72,11 +75,17 @@ function ItemDetails({ match }) {
 
                   <li>
                     <div class="h-full items-center ">
-                      <ion-icon name="cart-outline"></ion-icon>
+                      <ion-icon
+                        class="text-black dark:text-white"
+                        name="cart-outline"
+                      ></ion-icon>
                     </div>
                   </li>
                   <li>
-                    <ion-icon name="home-outline"></ion-icon>{" "}
+                    <ion-icon
+                      class="text-black dark:text-white"
+                      name="home-outline"
+                    ></ion-icon>
                   </li>
                 </ul>
               </div>
