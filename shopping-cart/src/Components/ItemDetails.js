@@ -37,29 +37,6 @@ function ItemDetails({ match }) {
                 className="header-text"
                 class="h-full w-full flex justify-center items-center"
               >
-                <div onClick={() => setTheme(colorTheme)}>
-                  {colorTheme === "light" && (
-                    <ion-icon name="moon-outline"></ion-icon>
-                  )}
-
-                  {colorTheme === "dark" && (
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-6 w-6"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth={2}
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
-                      />
-                    </svg>
-                  )}
-                </div>
-
                 <Link to="/shop">
                   <p class="font-oswald text-3xl tracking-wider text-white">
                     Daily Store
@@ -69,12 +46,37 @@ function ItemDetails({ match }) {
               <div classname="links" class="pr-12 h-full w-auto mt-0">
                 <ul class="flex flex-row gap-20  justify-center items-center h-full text-3xl">
                   <li>
+                    <div onClick={() => setTheme(colorTheme)}>
+                      {colorTheme === "light" && (
+                        <ion-icon name="moon-outline"></ion-icon>
+                      )}
+
+                      {colorTheme === "dark" && (
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="h-8 w-8"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth={2}
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+                          />
+                        </svg>
+                      )}
+                    </div>
+                  </li>
+
+                  <li>
                     <div class="h-full items-center ">
                       <ion-icon name="cart-outline"></ion-icon>
                     </div>
                   </li>
                   <li>
-                    <ion-icon name="menu-sharp"></ion-icon>{" "}
+                    <ion-icon name="home-outline"></ion-icon>{" "}
                   </li>
                 </ul>
               </div>
