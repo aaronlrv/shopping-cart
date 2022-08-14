@@ -95,9 +95,9 @@ function Store() {
           </div>
         </div>
 
-        <div class="bg-[#0c0c0fff] ">
+        <div class="bg-slate-200 shadow-2xl dark:bg-[#0c0c0fff] ">
           <div class="flex w-full justify-start items-start shadow-sm ">
-            <p class="text-white font-oswald tracking-widest text-2xl pt-8 pl-8 mb-2">
+            <p class="font-oswald tracking-widest text-2xl pt-8 pl-8 mb-2 text-black dark:text-white ">
               Filters
             </p>
           </div>
@@ -109,7 +109,7 @@ function Store() {
             <div>
               <label
                 htmlFor="search"
-                class="text-white w-12 inline-block pr-10"
+                class="w-12 inline-block pr-10 text-black dark:text-white "
               >
                 Search
               </label>
@@ -120,7 +120,10 @@ function Store() {
               />
             </div>
             <div>
-              <label htmlFor="rarity" class="text-white w-12 inline-block">
+              <label
+                htmlFor="rarity"
+                class="w-12 inline-block pr-10 text-black dark:text-white "
+              >
                 Rarity:
               </label>
               <select
@@ -138,7 +141,10 @@ function Store() {
               </select>
             </div>
             <div>
-              <label htmlFor="type" class="text-white w-12 inline-block">
+              <label
+                htmlFor="type"
+                class="w-12 inline-block pr-10 text-black dark:text-white "
+              >
                 Type:
               </label>
               <select
@@ -160,7 +166,7 @@ function Store() {
 
         <div
           className="parent-items"
-          class="pb-10 bg-blue-100 dark:bg-[#0c0c0fff] "
+          class="pb-10 bg-[rgba(39,42,176,0.2)] dark:bg-[#0c0c0fff] "
         >
           <div
             className="header"
