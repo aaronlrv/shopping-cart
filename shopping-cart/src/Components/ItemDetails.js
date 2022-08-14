@@ -81,12 +81,14 @@ function ItemDetails({ match }) {
                       ></ion-icon>
                     </div>
                   </li>
-                  <li>
-                    <ion-icon
-                      class="text-black dark:text-white"
-                      name="home-outline"
-                    ></ion-icon>
-                  </li>
+                  <Link to="/">
+                    <li>
+                      <ion-icon
+                        class="text-black dark:text-white"
+                        name="home-outline"
+                      ></ion-icon>
+                    </li>
+                  </Link>
                 </ul>
               </div>
             </div>
