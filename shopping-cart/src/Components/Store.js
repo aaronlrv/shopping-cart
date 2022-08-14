@@ -75,15 +75,17 @@ function Store() {
                     )}
                   </div>
                 </li>
+                <Link to="/cart">
+                  <li>
+                    <div class="h-full items-center ">
+                      <ion-icon
+                        class="text-black dark:text-white"
+                        name="cart-outline"
+                      ></ion-icon>
+                    </div>
+                  </li>
+                </Link>
 
-                <li>
-                  <div class="h-full items-center ">
-                    <ion-icon
-                      class="text-black dark:text-white"
-                      name="cart-outline"
-                    ></ion-icon>
-                  </div>
-                </li>
                 <Link to="/">
                   <li>
                     <ion-icon
