@@ -4,6 +4,7 @@ import Store from "./Store";
 import Unreleased from "./Unreleased";
 import Popular from "./Popular";
 import ItemDetails from "./ItemDetails";
+import Cart from "./Cart";
 
 function RouteSwitch() {
   return (
@@ -15,6 +16,7 @@ function RouteSwitch() {
 
         <Route path="/unreleased" element={<Unreleased />} />
         <Route path="/popular" element={<Popular />} />
+        <Route path="/cart" element={<Cart />} />
       </Routes>
     </BrowserRouter>
   );
