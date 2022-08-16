@@ -96,15 +96,24 @@ function Cart({}) {
           {cart.map((x) => {
             return (
               <div class="w-[96rem]  bg-slate-50 p-10 mt-8 rounded-md ">
-                <div className="content" class="flex flex-row">
-                  <div>
-                    <img
-                      class="h-20 w-auto"
-                      src={x.images.background}
-                      alt="product"
-                    />
+                <div className="content" class="flex flex-row items-center">
+                  <div className="left side" class="flex flex-row items-center">
+                    <div>
+                      <img
+                        class="h-20 w-auto"
+                        src={x.images.background}
+                        alt="product"
+                      />
+                    </div>
+                    <div class="pl-6 pr-2">{x.name}</div>
                   </div>
-                  <div>{x.name}</div>
+
+                  <div
+                    className="right side"
+                    class="flex justify-end items-end w-full"
+                  >
+                    <p>{x.cost + " " + x.obtained_type}</p>
+                  </div>
                 </div>
               </div>
             );
