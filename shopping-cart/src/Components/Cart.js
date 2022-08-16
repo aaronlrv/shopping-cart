@@ -1,8 +1,25 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import useDarkMode from "./darkMode";
 
-function Cart() {
+function Cart({}) {
   let [setTheme, colorTheme] = useDarkMode();
+  let [cart, setCart] = useState([]);
+  let [item, setItem] = useState();
+  let id = "3f9929b-c2133a6-422f0f1-e57cec7";
+
+  useEffect(() => {
+    async function getItem() {
+      let data = await fetch(
+        `https://fortnite-api.theapinetwork.com/item/get?id=${id}`,
+        { mode: "cors" }
+      );
+      let dataJson = await data.json();
+      console.log(dataJson);
+    }
+
+    getItem();
+  }, []);
   return (
     <div class="">
       <div
