@@ -15,6 +15,10 @@ function Cart({}) {
         { mode: "cors" }
       );
       let dataJson = await data.json();
+      let itemInfo = dataJson.data.item;
+
+      setCart([...cart, itemInfo]);
+
       console.log(dataJson);
     }
 
