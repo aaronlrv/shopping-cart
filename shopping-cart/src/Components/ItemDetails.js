@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import Cart from "./Cart";
 import useDarkMode from "./darkMode";
 
 function ItemDetails({ match }) {
@@ -131,20 +132,18 @@ function ItemDetails({ match }) {
                 {item.data.item.cost} VBUCKS
               </p>
             </div>
-
-            <div class="flex justify-start- items-center ">
-              <a
-                href="#_"
-                class="relative inline-flex items-center justify-start inline-block px-5 py-3 overflow-hidden font-bold rounded-full group"
-              >
-                <span class="w-36 h-36 rotate-45 translate-x-12 -translate-y-2 absolute left-0 top-0 bg-white opacity-[3%]"></span>
-                <span class="absolute top-0 left-0 w-48 h-48 -mt-1 transition-all duration-500 ease-in-out rotate-45 -translate-x-56 -translate-y-24 bg-white opacity-100 group-hover:-translate-x-8"></span>
-                <span class="relative w-full text-left text-white transition-colors duration-200 ease-in-out group-hover:text-gray-900">
-                  Add to cart
-                </span>
-                <span class="absolute inset-0 border-2 border-white rounded-full"></span>
-              </a>
-            </div>
+            <Link to="/cart" component={<Cart id={id} />}>
+              <div class="flex justify-start- items-center ">
+                <button class="relative inline-flex items-center justify-start inline-block px-5 py-3 overflow-hidden font-bold rounded-full group">
+                  <span class="w-36 h-36 rotate-45 translate-x-12 -translate-y-2 absolute left-0 top-0 bg-white opacity-[3%]"></span>
+                  <span class="absolute top-0 left-0 w-48 h-48 -mt-1 transition-all duration-500 ease-in-out rotate-45 -translate-x-56 -translate-y-24 bg-white opacity-100 group-hover:-translate-x-8"></span>
+                  <span class="relative w-full text-left text-white transition-colors duration-200 ease-in-out group-hover:text-gray-900">
+                    Add to cart
+                  </span>
+                  <span class="absolute inset-0 border-2 border-white rounded-full"></span>
+                </button>
+              </div>
+            </Link>
           </div>
         </div>
       </div>
