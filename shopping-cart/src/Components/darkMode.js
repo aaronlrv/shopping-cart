@@ -2,11 +2,13 @@ import { useEffect, useState } from "react";
 
 function useDarkMode() {
   let [theme, setTheme] = useState("light");
-  let colorTheme = theme === "light" ? "dark" : "light";
+  let colorTheme = theme === "light" ? "dark" : "light"; /// will be used in comparison often, it is the inverse of the current theme
 
   useEffect(() => {
     let root = window.document.documentElement;
-
+    console.log(root);
+    console.log("theme", theme);
+    console.log("colortheme", colorTheme);
     root.classList.add(theme);
     root.classList.remove(colorTheme);
   }, [setTheme, colorTheme]);

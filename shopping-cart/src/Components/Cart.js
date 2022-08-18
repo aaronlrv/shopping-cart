@@ -1,17 +1,17 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 import useDarkMode from "./darkMode";
+import itemContext from "./ItemDetails";
 
-function Cart({}) {
+function Cart({ items }) {
   let [setTheme, colorTheme] = useDarkMode();
   let [cart, setCart] = useState([]);
-  let [item, setItem] = useState();
-  let id = "3f9929b-c2133a6-422f0f1-e57cec7";
+  let id2 = "3f9929b-c2133a6-422f0f1-e57cec7";
 
   useEffect(() => {
     async function getItem() {
       let data = await fetch(
-        `https://fortnite-api.theapinetwork.com/item/get?id=${id}`,
+        `https://fortnite-api.theapinetwork.com/item/get?id=${id2}`,
         { mode: "cors" }
       );
       let dataJson = await data.json();
@@ -105,7 +105,7 @@ function Cart({}) {
                         alt="product"
                       />
                     </div>
-                    <div class="pl-6 pr-2">{x.name}</div>
+                    <div class="pl-6 pr-2 w-10">{x.name}</div>
                   </div>
 
                   <div
