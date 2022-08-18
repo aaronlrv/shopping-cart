@@ -1,13 +1,16 @@
 import { useContext, useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useLocation } from "react-router-dom";
 import useDarkMode from "./darkMode";
 import itemContext from "./ItemDetails";
 
 function Cart({ items }) {
   let [setTheme, colorTheme] = useDarkMode();
+  let location = useLocation();
+  let data = location.state;
   let [cart, setCart] = useState([]);
   let id2 = "3f9929b-c2133a6-422f0f1-e57cec7";
 
+  console.log(data);
   useEffect(() => {
     async function getItem() {
       let data = await fetch(
