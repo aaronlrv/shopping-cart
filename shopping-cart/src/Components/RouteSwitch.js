@@ -5,8 +5,15 @@ import Unreleased from "./Unreleased";
 import Popular from "./Popular";
 import ItemDetails from "./ItemDetails";
 import Cart from "./Cart";
+import { useState } from "react";
 
 function RouteSwitch() {
+  let [cart, setCart] = useState();
+
+  function addToCart(item) {
+    setCart(...cart, item);
+  }
+
   return (
     <BrowserRouter>
       <Routes>
