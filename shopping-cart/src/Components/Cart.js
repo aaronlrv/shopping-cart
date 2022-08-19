@@ -6,8 +6,6 @@ import itemContext from "./ItemDetails";
 function Cart({ items }) {
   let [setTheme, colorTheme] = useDarkMode();
 
-  let id2 = "3f9929b-c2133a6-422f0f1-e57cec7";
-
   let [cart, setCart] = useState([]);
   let location = useLocation();
   let itemData = location.state;
@@ -16,7 +14,17 @@ function Cart({ items }) {
   console.log(item);
 
   useEffect(() => {
-    setCart((cart) => [...cart, item]);
+    // let itemData = location.state;
+    // let item = itemData.items.data.item;
+    // console.log(itemData);
+    // console.log(item);
+    // setCart((cart) => cart.concat(item));
+
+    let oldCart = [...cart];
+    console.log(oldCart);
+    oldCart.push(item);
+
+    setCart(oldCart);
   }, []);
 
   // useEffect(() => {
