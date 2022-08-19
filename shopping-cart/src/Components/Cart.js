@@ -113,7 +113,7 @@ function Cart({ cart }) {
       </div>
 
       <div class="h-full w-full flex justify-center items-center">
-        <div class="border-solid border-black shadow-2xl h-[50rem] w-[100rem] mt-12 flex  items-center flex-col">
+        <div class="border-solid border-black shadow-2xl h-[50rem] w-[100rem] mt-12 flex  items-center flex-col overflow-auto ">
           {userCart.map((x) => {
             return (
               <div class="w-[96rem]  bg-slate-50 p-10 mt-8 rounded-md ">
