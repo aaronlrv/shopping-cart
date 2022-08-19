@@ -112,9 +112,9 @@ function Cart({ cart }) {
         </div>
       </div>
 
-      {/* <div class="h-full w-full flex justify-center items-center">
+      <div class="h-full w-full flex justify-center items-center">
         <div class="border-solid border-black shadow-2xl h-[50rem] w-[100rem] mt-12 flex  items-center flex-col">
-          {/* {cart.map((x) => {
+          {userCart.map((x) => {
             return (
               <div class="w-[96rem]  bg-slate-50 p-10 mt-8 rounded-md ">
                 <div className="content" class="flex flex-row items-center">
@@ -122,25 +122,25 @@ function Cart({ cart }) {
                     <div>
                       <img
                         class="h-20 w-auto"
-                        src={x.images.background}
+                        src={x.data.item.images.background}
                         alt="product"
                       />
                     </div>
-                    <div class="pl-6 pr-2 w-10">{x.name}</div>
+                    <div class="pl-6 pr-2 w-10">{x.data.item.name}</div>
                   </div>
 
                   <div
                     className="right side"
                     class="flex justify-end items-end w-full"
                   >
-                    <p>{x.cost + " " + x.obtained_type}</p>
+                    <p>{x.data.item.cost + " " + x.data.item.obtained_type}</p>
                   </div>
                 </div>
               </div>
             );
-          })} 
+          })}
         </div>
-      </div> */}
+      </div>
     </div>
   );
 }
