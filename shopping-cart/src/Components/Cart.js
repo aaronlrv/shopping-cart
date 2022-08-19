@@ -5,28 +5,37 @@ import itemContext from "./ItemDetails";
 
 function Cart({ items }) {
   let [setTheme, colorTheme] = useDarkMode();
-  let location = useLocation();
-  let data = location.state;
-  let [cart, setCart] = useState([]);
+
   let id2 = "3f9929b-c2133a6-422f0f1-e57cec7";
 
-  console.log(data);
+  let [cart, setCart] = useState([]);
+  let location = useLocation();
+  let itemData = location.state;
+  let item = itemData.items.data.item;
+  console.log(itemData);
+  console.log(item);
+
   useEffect(() => {
-    async function getItem() {
-      let data = await fetch(
-        `https://fortnite-api.theapinetwork.com/item/get?id=${id2}`,
-        { mode: "cors" }
-      );
-      let dataJson = await data.json();
-      let itemInfo = dataJson.data.item;
-
-      setCart([...cart, itemInfo]);
-
-      console.log(dataJson);
-    }
-
-    getItem();
+    setCart((cart) => [...cart, item]);
   }, []);
+
+  // useEffect(() => {
+  //   async function getItem() {
+  //     let data = await fetch(
+  //       `https://fortnite-api.theapinetwork.com/item/get?id=${id2}`,
+  //       { mode: "cors" }
+  //     );
+  //     let dataJson = await data.json();
+  //     let itemInfo = dataJson.data.item;
+
+  //     setCart([...cart, itemInfo]);
+
+  //     console.log(dataJson);
+  //   }
+
+  //   getItem();
+
+  // }, []);
   return (
     <div class="">
       <div
