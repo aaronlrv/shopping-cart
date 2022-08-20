@@ -5,7 +5,16 @@ import itemContext from "./ItemDetails";
 
 function Cart({ cart }) {
   let [setTheme, colorTheme] = useDarkMode();
+
   let userCart = cart;
+  let total = [];
+  userCart.map((x) => {
+    total.push(x.data.item.cost);
+  });
+  let totalCart = total.reduce((accumulator, currentValue) => {
+    return accumulator + currentValue;
+  }, 0);
+  console.log(total);
   console.log(userCart);
   return (
     <div class="">
@@ -102,6 +111,10 @@ function Cart({ cart }) {
               </div>
             );
           })}
+
+          <div class="pt-12">
+            <p class="text-2xl">Total Price: {totalCart}</p>
+          </div>
         </div>
       </div>
     </div>
