@@ -4,10 +4,7 @@ import Cart from "./Cart";
 import useDarkMode from "./darkMode";
 import React from "react";
 
-let itemContext = React.createContext();
-let itemProvider = itemContext.Provider;
-
-function ItemDetails({ addToCart }) {
+function ItemDetails({ addToCart, price }) {
   let [item, setItem] = useState(null);
   console.log(addToCart);
   let id = useParams().id;
@@ -31,6 +28,8 @@ function ItemDetails({ addToCart }) {
   //   return item.map((x) => {
   // return item.map((x) => {
   if (item !== null) {
+    let cost = item.data.item.cost;
+    console.log(item);
     return (
       <div class="">
         {" "}
@@ -134,9 +133,7 @@ function ItemDetails({ addToCart }) {
             </div>
 
             <div class="flex mt-28 h-36">
-              <p class="font-oswald text-5xl dark:text-white ">
-                {item.data.item.cost} VBUCKS
-              </p>
+              <p class="font-oswald text-5xl dark:text-white ">{cost} VBUCKS</p>
             </div>
             {/* <Link to="/cart" state={{ items: item }}> */}
             <div class="flex justify-start- items-center ">
