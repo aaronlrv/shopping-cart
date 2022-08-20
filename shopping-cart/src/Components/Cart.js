@@ -102,8 +102,9 @@ function Cart({ cart }) {
 
                   <div
                     className="right side"
-                    class="flex justify-end items-end w-full"
+                    class="flex flex-col justify-end items-end w-full"
                   >
+                    <p>{x.quantity + " " + "Items"}</p>
                     <p>{x.data.item.cost + " " + x.data.item.obtained_type}</p>
                   </div>
                 </div>
