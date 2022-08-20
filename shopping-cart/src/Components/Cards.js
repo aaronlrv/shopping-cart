@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 
 function Cards({ type, rarity, search, items, theme }) {
   console.log(theme);
+  console.log(rarity);
+  console.log(search);
 
   if (theme === "dark") {
     /// light mode styling
@@ -51,7 +53,7 @@ function Cards({ type, rarity, search, items, theme }) {
           );
         }
       });
-    } else if (rarity !== undefined && type !== undefined) {
+    } else if (rarity !== "not selected" && type !== "not selected") {
       return items.map((x) => {
         if (x.item.rarity === rarity && x.item.type === type) {
           return (
@@ -96,7 +98,7 @@ function Cards({ type, rarity, search, items, theme }) {
           );
         }
       });
-    } else if (rarity !== undefined) {
+    } else if (rarity !== "not selected") {
       return items.map((x) => {
         if (x.item.rarity === rarity) {
           return (
@@ -141,7 +143,7 @@ function Cards({ type, rarity, search, items, theme }) {
           );
         }
       });
-    } else if (type !== undefined) {
+    } else if (type !== "not selected") {
       return items.map((x) => {
         if (x.item.type === type) {
           return (
@@ -277,7 +279,7 @@ function Cards({ type, rarity, search, items, theme }) {
           );
         }
       });
-    } else if (rarity !== undefined && type !== undefined) {
+    } else if (rarity !== "not selected" && type !== "not selected") {
       return items.map((x) => {
         if (x.item.rarity === rarity && x.item.type === type) {
           return (
@@ -322,7 +324,7 @@ function Cards({ type, rarity, search, items, theme }) {
           );
         }
       });
-    } else if (rarity !== undefined) {
+    } else if (rarity !== "not selected") {
       return items.map((x) => {
         if (x.item.rarity === rarity) {
           return (
@@ -367,7 +369,7 @@ function Cards({ type, rarity, search, items, theme }) {
           );
         }
       });
-    } else if (type !== undefined) {
+    } else if (type !== "not selected") {
       return items.map((x) => {
         if (x.item.type === type) {
           return (
