@@ -21,40 +21,21 @@ function RouteSwitch() {
     console.log(item);
     console.log(item.data.item.name);
 
-    if (cloneCart.length === 0) {
+    const foundItem = cloneCart.find(
+      (x) => item.data.item.name === x.data.item.name
+    );
+    if (foundItem === undefined) {
       item.quantity = 1;
       cloneCart.push(item);
-      setCart(cloneCart); /// if no items in cart dont run comparison
     } else {
-      let newArr = cloneCart.map((x) => {
-        if (item.data.item.name === x.data.item.name) {
-          x.quantity = x.quantity + 1;
-          return x;
-        } else {
-          item.quantity = 1;
-          cloneCart.push(item);
-          return item;
-        }
-      });
-      console.log(newArr);
-      setCart(newArr);
+      console.log(foundItem);
+      foundItem.quantity = foundItem.quantity + 1;
+      foundItem.data.item.cost =
+        foundItem.data.item.cost + foundItem.data.item.cost;
     }
-  }
 
-  // cart.map((x) => {
-  //   x.quantity = 1;
-  // });
-  // let objCopy;
-  // function addToCart(item) {
-  //   cart.map((x) => {
-  //     if (item.data.item.name === x.data.item.name) {
-  //       objCopy = x;
-  //       objCopy.quantity = objCopy.quantity + 1;
-  //       /// add quantity
-  //     }
-  //   });
-  //   setCart([...cart, item]);
-  //}
+    setCart(cloneCart);
+  }
 
   return (
     <BrowserRouter>
