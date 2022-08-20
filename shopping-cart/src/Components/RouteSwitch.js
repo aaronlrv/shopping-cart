@@ -50,6 +50,11 @@ function RouteSwitch() {
     } else {
       foundItem.quantity = foundItem.quantity - 1;
       foundItem.data.item.cost = foundItem.data.item.cost - price;
+
+      if (foundItem.quantity === 0 || foundItem.data.item.cost === 0) {
+        let index = cloneCart.indexOf(foundItem.data.item.name);
+        cloneCart.splice(index, 1);
+      }
     }
 
     console.log(x);
