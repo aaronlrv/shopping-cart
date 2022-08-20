@@ -36,35 +36,33 @@ function RouteSwitch() {
     setCart(cloneCart);
   }
 
-  function quantity(x, e) {
+  async function quantity(x, e) {
     let cloneCart = [...cart];
     let item = x;
+    let price = await fetchPrice(item.data.itemId);
     const foundItem = cloneCart.find(
       (x) => item.data.item.name === x.data.item.name
     );
 
     if (e.target.innerText === "+") {
       foundItem.quantity = foundItem.quantity + 1;
-      foundItem.data.item.cost =
-        foundItem.data.item.cost + foundItem.data.item.cost;
+      foundItem.data.item.cost = foundItem.data.item.cost + price;
     } else {
       foundItem.quantity = foundItem.quantity - 1;
-      foundItem.data.item.cost =
-        foundItem.data.item.cost - foundItem.data.item.cost;
+      foundItem.data.item.cost = foundItem.data.item.cost - price;
     }
 
     console.log(x);
     console.log(e.target.innerText);
-
+    console.log(price);
     setCart(cloneCart);
-    fetchItem(item.data.itemId);
     ///dont directly mutate
     /// clone the cart
     /// use x name for find
     /// add and delete quantity based on that, the state refresh will also cause a refresh on the page
   }
 
-  async function fetchItem(id) {
+  async function fetchPrice(id) {
     console.log(id);
     let data = await fetch(
       `https://fortnite-api.theapinetwork.com/item/get?id=${id}`,
@@ -73,6 +71,9 @@ function RouteSwitch() {
 
     let dataJson = await data.json();
     console.log(dataJson);
+
+    let price = dataJson.data.item.cost;
+    return price;
   }
 
   return (
