@@ -7,44 +7,6 @@ function Cart({ cart }) {
   let [setTheme, colorTheme] = useDarkMode();
   let userCart = cart;
   console.log(userCart);
-  // let [cart, setCart] = useState([]);
-  // let location = useLocation();
-  // let itemData = location.state;
-  // let item = itemData.items.data.item;
-  // console.log(itemData);
-  // console.log(item);
-
-  // useEffect(() => {
-  //   // let itemData = location.state;
-  //   // let item = itemData.items.data.item;
-  //   // console.log(itemData);
-  //   // console.log(item);
-  //   // setCart((cart) => cart.concat(item));
-
-  //   let oldCart = [...cart];
-  //   console.log(oldCart);
-  //   oldCart.push(item);
-
-  //   setCart(oldCart);
-  // }, []);
-
-  // useEffect(() => {
-  //   async function getItem() {
-  //     let data = await fetch(
-  //       `https://fortnite-api.theapinetwork.com/item/get?id=${id2}`,
-  //       { mode: "cors" }
-  //     );
-  //     let dataJson = await data.json();
-  //     let itemInfo = dataJson.data.item;
-
-  //     setCart([...cart, itemInfo]);
-
-  //     console.log(dataJson);
-  //   }
-
-  //   getItem();
-
-  // }, []);
   return (
     <div class="">
       <div
@@ -115,6 +77,7 @@ function Cart({ cart }) {
       <div class="h-full w-full flex justify-center items-center">
         <div class="border-solid border-black shadow-2xl h-[50rem] w-[100rem] mt-12 flex  items-center flex-col overflow-auto ">
           {userCart.map((x) => {
+            let counter = x.total;
             return (
               <div class="w-[96rem]  bg-slate-50 p-10 mt-8 rounded-md ">
                 <div className="content" class="flex flex-row items-center">
