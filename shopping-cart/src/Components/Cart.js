@@ -3,7 +3,7 @@ import { Link, useParams, useLocation } from "react-router-dom";
 import useDarkMode from "./darkMode";
 import itemContext from "./ItemDetails";
 
-function Cart({ cart }) {
+function Cart({ cart, quantity }) {
   let [setTheme, colorTheme] = useDarkMode();
 
   let userCart = cart;
@@ -106,6 +106,10 @@ function Cart({ cart }) {
                   >
                     <p>{x.quantity + " " + "Items"}</p>
                     <p>{x.data.item.cost + " " + x.data.item.obtained_type}</p>
+                    <div class="flex gap-10 text-2xl">
+                      <button onClick={(e) => quantity(x, e)}>+ </button>
+                      <button onClick={(e) => quantity(x, e)}>-</button>
+                    </div>
                   </div>
                 </div>
               </div>

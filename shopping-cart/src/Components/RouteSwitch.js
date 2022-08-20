@@ -33,8 +33,31 @@ function RouteSwitch() {
       foundItem.data.item.cost =
         foundItem.data.item.cost + foundItem.data.item.cost;
     }
+    setCart(cloneCart);
+  }
+
+  function quantity(x, e) {
+    let cloneCart = [...cart];
+    let item = x;
+    const foundItem = cloneCart.find(
+      (x) => item.data.item.name === x.data.item.name
+    );
+
+    if (e.target.innerText === "+") {
+      foundItem.quantity = foundItem.quantity + 1;
+    } else {
+      foundItem.quantity = foundItem.quantity - 1;
+    }
+
+    console.log(x);
+    console.log(e.target.innerText);
 
     setCart(cloneCart);
+
+    ///dont directly mutate
+    /// clone the cart
+    /// use x name for find
+    /// add and delete quantity based on that, the state refresh will also cause a refresh on the page
   }
 
   return (
@@ -49,7 +72,10 @@ function RouteSwitch() {
 
         <Route path="/unreleased" element={<Unreleased />} />
         <Route path="/popular" element={<Popular />} />
-        <Route path="/cart" element={<Cart cart={[...cart]} />} />
+        <Route
+          path="/cart"
+          element={<Cart cart={[...cart]} quantity={quantity} />}
+        />
       </Routes>
     </BrowserRouter>
   );
