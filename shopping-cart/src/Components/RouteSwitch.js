@@ -45,19 +45,34 @@ function RouteSwitch() {
 
     if (e.target.innerText === "+") {
       foundItem.quantity = foundItem.quantity + 1;
+      foundItem.data.item.cost =
+        foundItem.data.item.cost + foundItem.data.item.cost;
     } else {
       foundItem.quantity = foundItem.quantity - 1;
+      foundItem.data.item.cost =
+        foundItem.data.item.cost - foundItem.data.item.cost;
     }
 
     console.log(x);
     console.log(e.target.innerText);
 
     setCart(cloneCart);
-
+    fetchItem(item.data.itemId);
     ///dont directly mutate
     /// clone the cart
     /// use x name for find
     /// add and delete quantity based on that, the state refresh will also cause a refresh on the page
+  }
+
+  async function fetchItem(id) {
+    console.log(id);
+    let data = await fetch(
+      `https://fortnite-api.theapinetwork.com/item/get?id=${id}`,
+      { mode: "cors" }
+    );
+
+    let dataJson = await data.json();
+    console.log(dataJson);
   }
 
   return (
