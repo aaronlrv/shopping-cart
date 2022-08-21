@@ -33,6 +33,13 @@ function RouteSwitch() {
       foundItem.data.item.cost =
         foundItem.data.item.cost + foundItem.data.item.cost;
     }
+
+    if (item.data.item.upcoming === true) {
+      console.log(item.data.item.name);
+      console.log(item.data.item.cost);
+      let index = cloneCart.indexOf(item.data.item.cost);
+      cloneCart.splice(index, 1);
+    }
     setCart(cloneCart);
   }
 
