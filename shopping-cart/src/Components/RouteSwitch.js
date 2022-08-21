@@ -16,10 +16,11 @@ import { useState } from "react";
 function RouteSwitch() {
   let [cart, setCart] = useState([]);
 
-  function addToCart(item) {
+  async function addToCart(item) {
     let cloneCart = [...cart];
     console.log(item);
     console.log(item.data.item.name);
+    let price = await fetchPrice(item.data.itemId);
 
     const foundItem = cloneCart.find(
       (x) => item.data.item.name === x.data.item.name
@@ -30,11 +31,11 @@ function RouteSwitch() {
     } else {
       console.log(foundItem);
       foundItem.quantity = foundItem.quantity + 1;
-      foundItem.data.item.cost =
-        foundItem.data.item.cost + foundItem.data.item.cost;
+      foundItem.data.item.cost = foundItem.data.item.cost + price;
     }
 
     if (item.data.item.upcoming === true) {
+      /// remove if item is unreleased
       console.log(item.data.item.name);
       console.log(item.data.item.cost);
       let index = cloneCart.indexOf(item.data.item.cost);
@@ -95,7 +96,7 @@ function RouteSwitch() {
         <Route path="/shop" element={<Store />} />
         <Route
           path="/shop/:id"
-          element={<ItemDetails addToCart={addToCart} />}
+          element={<ItemDetails addToCart={addToCart} price={fetchPrice} />}
         />
 
         <Route
