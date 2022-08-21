@@ -25,7 +25,7 @@ function Popular() {
 
   return (
     <div class="">
-      <div class=" grid grid-rows-[80px,1fr] grid-cols-[0.25fr,1fr] ">
+      <div class="  ">
         <div
           className="header-nav"
           class="h-20 shadow-lg col-span-2 bg-white dark:bg-[#1a181aff]             "
@@ -94,14 +94,14 @@ function Popular() {
           </div>
         </div>
 
-        <div>
+        <div class="grid grid-rows-2 grid-cols-3">
           {items.map((x) => {
             return (
               <>
                 <Link to={`/shop/${x.itemId}`}>
                   <div
                     className="card"
-                    class="h-72 gap-6 m-5 grid grid-rows-[100,100] grid-cols-2 shadow-xl transition ease-in-out delay-100  hover:scale-105 duration-300 bg-slate-100  "
+                    class="h-72 gap-6 m-5 grid grid-rows-[100,100] grid-cols-2 shadow-xl transition ease-in-out delay-100  hover:scale-105 duration-300 bg-slate-100 w-[30rem]  "
                   >
                     <div class="h-full flex justify-start items-center row-span-2">
                       <img
