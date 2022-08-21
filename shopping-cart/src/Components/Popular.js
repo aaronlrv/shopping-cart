@@ -16,8 +16,8 @@ function Popular() {
 
       let dataJson = await dataItems.json();
       console.log(dataJson);
-      setItems(dataJson.data);
-      console.log(dataJson.data);
+      setItems(dataJson.entries[1].entries);
+      console.log(dataJson.entries[1].entries);
     }
 
     getItems();
@@ -92,6 +92,12 @@ function Popular() {
               </ul>
             </div>
           </div>
+        </div>
+
+        <div>
+          {items.map((x) => {
+            return <div>{x.images.transparent}</div>;
+          })}
         </div>
 
         {/* <div
