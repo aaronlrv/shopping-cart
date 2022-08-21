@@ -107,7 +107,7 @@ function Popular() {
               {items.map((x) => {
                 return (
                   <>
-                    <Link to={`/shop/${x.itemId}`}>
+                    <Link to={`/popular/${x.identifier}`}>
                       <div
                         className="card"
                         class="h-72 gap-6 m-5 grid grid-rows-[100,100] grid-cols-2 shadow-xl transition ease-in-out delay-100  hover:scale-105 duration-300 bg-slate-100 w-[30rem]  "
@@ -127,7 +127,7 @@ function Popular() {
                         </div>
                         <div class="flex justify-center items-center">
                           <a
-                            href={x.itemId}
+                            href={x.identifier}
                             class="relative inline-block text-lg group"
                           >
                             <span class="relative z-10 block px-5 py-3 overflow-hidden font-medium leading-tight text-gray-800 transition-colors duration-300 ease-out border-2 border-[#272AB0] 0 rounded-lg group-hover:text-white">

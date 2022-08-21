@@ -91,6 +91,11 @@ function RouteSwitch() {
           element={<ItemDetails addToCart={addToCart} />}
         />
 
+        <Route
+          path="/popular/:id"
+          element={<ItemDetails addToCart={addToCart} />}
+        />
+
         <Route path="/unreleased" element={<Unreleased />} />
         <Route path="/popular" element={<Popular />} />
         <Route
