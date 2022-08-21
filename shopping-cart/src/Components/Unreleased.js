@@ -172,13 +172,18 @@ function Unreleased() {
           className="parent-items"
           class="pb-10 bg-[rgba(39,42,176,0.2)] dark:bg-[#0c0c0fff] "
         >
-          <div
-            className="header"
-            class="flex w-full justify-start items-start shadow-sm"
-          >
-            <p class="font-oswald tracking-widest text-2xl pt-8 pl-8 mb-2 text-black dark:text-white">
-              Items
-            </p>
+          <div className="header" class="flex w-full  shadow-sm">
+            <div class="flex justify-start items-center w-full">
+              <p class="font-oswald tracking-widest text-2xl pt-8 pl-8 mb-2 text-black dark:text-white">
+                Upcoming Items
+              </p>
+            </div>
+
+            <div class="flex justify-end items-center w-full">
+              <p class="font-oswald italic tracking-widest text-sm pt-8 pr-8 pl-8 mb-2 text-black dark:text-white">
+                *Note you cannot checkout these items
+              </p>
+            </div>
           </div>
 
           <div
