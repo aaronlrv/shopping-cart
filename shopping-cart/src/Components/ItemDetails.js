@@ -6,6 +6,7 @@ import React from "react";
 
 function ItemDetails({ addToCart, price }) {
   let [item, setItem] = useState(null);
+  let [cost, setCost] = useState(null);
   console.log(addToCart);
   let id = useParams().id;
   let passId = id;
@@ -21,15 +22,19 @@ function ItemDetails({ addToCart, price }) {
       console.log(data);
       let dataJson = await data.json();
       setItem(dataJson);
+
+      let cost = await price(id);
+      setCost(cost);
     }
     gatherData();
+
+    console.log(item);
+    console.log(cost);
   }, []);
 
   //   return item.map((x) => {
   // return item.map((x) => {
-  if (item !== null) {
-    let cost = item.data.item.cost;
-    console.log(item);
+  if (item !== null && cost !== null) {
     return (
       <div class="">
         {" "}
