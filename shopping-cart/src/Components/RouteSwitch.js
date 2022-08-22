@@ -34,7 +34,10 @@ function RouteSwitch() {
       foundItem.data.item.cost = foundItem.data.item.cost + price;
     }
 
-    if (item.data.item.upcoming === true) {
+    if (
+      item.data.item.upcoming === true ||
+      item.data.item.obtained_type === "none"
+    ) {
       /// remove if item is unreleased
       console.log(item.data.item.name);
       console.log(item.data.item.cost);
