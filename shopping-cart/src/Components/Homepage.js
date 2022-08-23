@@ -7,18 +7,18 @@ import { Link } from "react-router-dom";
 
 function Homepage() {
   return (
-    <div class="h-screen bg-[url('/home/aaron/odin-projects/shopping-cart/shopping-cart/src/bg.jpg')]">
+    <div class="h-screen bg-[url('/home/aaron/odin-projects/shopping-cart/shopping-cart/src/bg.jpg')] max-w-sm">
       <div
         className="Hero"
         class="h-full w-full flex flex-col justify-center items-center gap-3"
       >
-        <h3 class="text-9xl text-white font-blaka  tracking-[0.010em] ">
+        <h3 class="text-8xl text-white font-blaka  tracking-[0.010em] ">
           Night Market
         </h3>
         <div>
           <p
             id="desc"
-            class="text-2xl text-white font-chinese tracking-widest  "
+            class="text-xl text-white font-chinese tracking-widest  "
           >
             The best place to find the latest
             <Typewriter
