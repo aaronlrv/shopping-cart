@@ -24,16 +24,16 @@ function Popular() {
   }, []);
 
   return (
-    <div class="dark:bg-[#0c0c0fff] h-screen">
-      <div class="  ">
+    <div class="dark:bg-[#0c0c0fff] h-screen w-screen">
+      <div class="">
         <div
           className="header-nav"
-          class="h-20 shadow-lg col-span-2 bg-white dark:bg-[#1a181aff]             "
+          class="h-20 shadow-lg  bg-white dark:bg-[#1a181aff] min-w-max           "
         >
-          <div class="flex flex-row justify-center items-center w-full h-full">
+          <div class="flex flex-row justify-center items-center h-full gap-x-5">
             <div
               className="header-text"
-              class="h-full w-full flex justify-center items-center"
+              class="h-full flex items-center justify-start  md:justify-center"
             >
               <Link to="/shop">
                 <p class="font-oswald text-3xl tracking-wider text-black dark:text-white">
@@ -41,9 +41,9 @@ function Popular() {
                 </p>
               </Link>
             </div>
-            <div classname="links" class="pr-12 h-full w-15 mt-0">
-              <ul class="flex flex-row   justify-center items-center h-full w-full text-3xl">
-                <div class="gap-x-20 flex flex-row w-full">
+            <div classname="links" class="pr-12 h-full  mt-0">
+              <ul class="flex flex-row w-screen  h-full items-center text-3xl justify-end md:justify-center ">
+                <div class="md:gap-x-20 flex flex-row justify-end w-full gap-x-3">
                   <li>
                     <div onClick={() => setTheme(colorTheme)}>
                       {colorTheme === "light" && (
@@ -96,7 +96,7 @@ function Popular() {
           </div>
         </div>
         <div class="dark:bg-[#0c0c0fff] h-full">
-          <div class="flex flex-col justify-center items-center gap-5 mt-5  dark:bg-[#0c0c0fff]">
+          <div class="flex flex-col justify-center items-center gap-5 mt-5  dark:bg-[#0c0c0fff] min-w-full">
             {/* <div>
             <h3 class="font-oswaldtracking-widest text-3xl">
               Popular items in the past 60 minutes
