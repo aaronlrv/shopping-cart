@@ -28,7 +28,7 @@ function Popular() {
       <div class="">
         <div
           className="header-nav"
-          class="h-20 shadow-lg  bg-white dark:bg-[#1a181aff] min-w-max           "
+          class="h-20 shadow-lg  bg-white dark:bg-[#1a181aff] min-w-max overflow-hidden          "
         >
           <div class="flex flex-row justify-center items-center h-full gap-x-5">
             <div
@@ -41,10 +41,10 @@ function Popular() {
                 </p>
               </Link>
             </div>
-            <div classname="links" class="pr-12 h-full  mt-0">
+            <div classname="links" class=" h-full mt-0 pr-3 sm:pr-6 md:pr-12">
               <ul class="flex flex-row w-screen  h-full items-center text-3xl justify-end md:justify-center ">
-                <div class="md:gap-x-20 flex flex-row justify-end w-full gap-x-3">
-                  <li>
+                <div class="flex flex-row justify-end w-screen gap-x-3 md:gap-x-20 ">
+                  <li class="hidden md: visible">
                     <div onClick={() => setTheme(colorTheme)}>
                       {colorTheme === "light" && (
                         <ion-icon
@@ -83,7 +83,7 @@ function Popular() {
                   </Link>
 
                   <Link to="/">
-                    <li>
+                    <li class="hidden md: visible">
                       <ion-icon
                         class="text-black dark:text-white"
                         name="home-outline"
@@ -103,24 +103,24 @@ function Popular() {
             </h3> */}
           </div>
           <div class=" h-full mt-8 flex justify-center items-center gap-72  dark:bg-[#0c0c0fff]">
-            <div class="grid grid-rows-2 grid-cols-3 gap-12">
+            <div class="lg:grid grid-rows-2 grid-cols-3 gap-12">
               {items.map((x) => {
                 return (
                   <>
                     <Link to={`/popular/${x.identifier}`}>
                       <div
                         className="card"
-                        class="h-72 gap-6 m-5 grid grid-rows-[100,100] grid-cols-2 shadow-xl transition ease-in-out delay-100  hover:scale-105 duration-300 bg-slate-100 w-[30rem] dark:bg-[#1a181aff]  "
+                        class="h-72 w-[16rem] gap-6 m-5 grid grid-rows-[100,100] grid-cols-2 shadow-xl transition ease-in-out delay-100  hover:scale-105 duration-300 bg-slate-100  dark:bg-[#1a181aff] md:w-[30rem] lg:w-[20rem] xl:w-[25rem]  "
                       >
                         <div class="h-full flex justify-start items-center row-span-2">
                           <img
-                            class="h-48 w-auto "
+                            class="h-44 w-auto "
                             src={x.images.transparent}
                             alt="fortnite skin"
                           />
                         </div>
                         <div class="flex flex-col justify-center items-center">
-                          <p class="font-chinese text-3xl tracking-wider text-black dark:text-white">
+                          <p class="font-chinese  tracking-wider text-black dark:text-white text-2xl lg:text-3xl">
                             {x.name}
                           </p>
                           <p class="text-black dark:text-blue-200">
