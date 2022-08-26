@@ -24,16 +24,16 @@ function Popular() {
   }, []);
 
   return (
-    <div class="dark:bg-[#0c0c0fff] h-screen w-screen">
+    <div class="dark:bg-[#0c0c0fff] h-screen w-screen ">
       <div class="">
         <div
           className="header-nav"
-          class="h-20 shadow-lg  bg-white dark:bg-[#1a181aff] min-w-max overflow-hidden          "
+          class="h-20 shadow-lg  bg-white dark:bg-[#1a181aff] w-auto"
         >
           <div class="flex flex-row justify-center items-center h-full gap-x-5">
             <div
               className="header-text"
-              class="h-full flex items-center justify-start  md:justify-center"
+              class="h-full w-full flex items-center justify-start  md:justify-center"
             >
               <Link to="/shop">
                 <p class="font-oswald text-3xl tracking-wider text-black dark:text-white">
@@ -44,7 +44,7 @@ function Popular() {
             <div classname="links" class=" h-full mt-0 pr-3 sm:pr-6 md:pr-12">
               <ul class="flex flex-row w-screen  h-full items-center text-3xl justify-end md:justify-center ">
                 <div class="flex flex-row justify-end w-screen gap-x-3 md:gap-x-20 ">
-                  <li class="hidden md: visible">
+                  <li>
                     <div onClick={() => setTheme(colorTheme)}>
                       {colorTheme === "light" && (
                         <ion-icon
@@ -83,7 +83,7 @@ function Popular() {
                   </Link>
 
                   <Link to="/">
-                    <li class="hidden md: visible">
+                    <li>
                       <ion-icon
                         class="text-black dark:text-white"
                         name="home-outline"
@@ -110,7 +110,7 @@ function Popular() {
                     <Link to={`/popular/${x.identifier}`}>
                       <div
                         className="card"
-                        class="h-72 w-[16rem] gap-6 m-5 grid grid-rows-[100,100] grid-cols-2 shadow-xl transition ease-in-out delay-100  hover:scale-105 duration-300 bg-slate-100  dark:bg-[#1a181aff] md:w-[30rem] lg:w-[20rem] xl:w-[25rem]  "
+                        class="h-72 w-[16rem] gap-6 m-5 grid grid-rows-[100,100] grid-cols-2 shadow-xl transition ease-in-out delay-100  hover:scale-105 duration-300 bg-slate-100  dark:bg-[#1a181aff] md:w-[30rem] lg:w-[20rem] xl:w-[25rem] 2xl:w-[30rem]  "
                       >
                         <div class="h-full flex justify-start items-center row-span-2">
                           <img
