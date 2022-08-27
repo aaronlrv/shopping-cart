@@ -71,7 +71,7 @@ function Cart({ cart, quantity }) {
         </ul>
       </div>
 
-      <div class="h-full w-full flex justify-center items-center">
+      <div class="h-full w-full flex justify-center items-center dark:bg-[#0c0c0fff]">
         <div class="border-solid border-black shadow-2xl w-[17rem] h-[35rem]  mt-12 flex  items-center flex-col overflow-auto 2xl:h-[50rem] 2xl:w-[100rem] sm:h-[40rem] sm:w-[35rem] lg:h-[40rem] lg:w-[50rem] xl:w-[80rem] xl:h-[45rem] dark:bg-zinc-900  ">
           {userCart.map((x) => {
             return (
