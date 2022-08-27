@@ -92,7 +92,7 @@ function Popular() {
                   <Link to={`/popular/${x.identifier}`}>
                     <div
                       className="card"
-                      class="h-[24rem] w-fit gap-6 m-5 grid grid-rows-[100,100] grid-cols-2 shadow-md transition ease-in-out delay-100  hover:scale-105 duration-300 bg-slate-100  dark:bg-[#1a181aff] md:w-[30rem] lg:w-[20rem] xl:w-[25rem] 2xl:w-[30rem]  "
+                      class="h-[24rem] w-[300px] gap-6 m-5 grid grid-rows-[100,100] grid-cols-2 shadow-md transition ease-in-out delay-100  hover:scale-105 duration-300 bg-slate-100  dark:bg-[#1a181aff] sm:w-[25rem] md:w-[35rem] lg:w-[20rem] xl:w-[25rem] 2xl:w-[30rem]  "
                     >
                       <div class="h-full flex justify-start items-center row-span-2">
                         <img
