@@ -94,10 +94,10 @@ function ItemDetails({ addToCart, price }) {
           <div></div> {/* placement div that fixes page layout*/}
           <div className="photo" class=" bg-[rgba(39,42,176,0.2)] row-span-2">
             <div class="flex justify-center items-center h-full">
-              <div class=" bg-slate-200 h-[25rem] w-[22rem]  shadow-2xl border-2 border-black border-opacity-20 rounded-lg lg:w-[37rem] lg:h-[40rem] ">
+              <div class=" bg-slate-200 h-[25rem] w-[22rem]  shadow-2xl border-2 border-black border-opacity-20 rounded-lg md:h-[30rem] md:w-[27rem] lg:w-[37rem] lg:h-[40rem] ">
                 <div class="h-full flex justify-center items-center">
                   <img
-                    class="h-[20rem] w-auto lg:h-auto lg:w-auto"
+                    class="h-[20rem] w-auto md:h-[25rem] lg:h-auto lg:w-auto"
                     src={item.data.item.images.background}
                     alt="product"
                   ></img>
@@ -105,10 +105,10 @@ function ItemDetails({ addToCart, price }) {
               </div>
             </div>
           </div>
-          <div class="bg-[rgba(57,59,140,0.4)] h-screen dark:bg-[#0c0c0fff lg:h-full]">
+          <div class="bg-[rgba(57,59,140,0.4)] h-screen dark:bg-[#0c0c0fff] lg:h-full lg:overflow-clip">
             <div class="pl-[2.2rem] dark:bg-[#0c0c0fff]">
               <div class="mt-28 h-36 flex flex-col justify-center items-start dark:bg-[#0c0c0fff] ">
-                <h3 class="font-oswald text-8xl dark:text-white ">
+                <h3 class="font-oswald pb-2 text-6xl sm:text-7xl lg:text-8xl   dark:text-white ">
                   {item.data.item.name}
                 </h3>
                 <p class="font-oswald text-3xl dark:text-white ">
