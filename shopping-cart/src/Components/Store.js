@@ -33,7 +33,7 @@ function Store() {
       <div class=" 2xl:grid grid-rows-[80px,1fr] grid-cols-[0.25fr,1fr] ">
         <div
           className="header-nav"
-          class="h-20 fixed top-0 shadow-md bg-white  dark:bg-[#1a181aff] w-full flex justify-between items-center pl-6 md:pl-24 "
+          class="h-20 fixed top-0 shadow-md bg-white  dark:bg-[#1a181aff] w-full flex justify-between items-center pl-6 md:pl-24 z-30 "
         >
           <Link to="/shop">
             <p class="font-oswald text-3xl tracking-wider text-black dark:text-white">
