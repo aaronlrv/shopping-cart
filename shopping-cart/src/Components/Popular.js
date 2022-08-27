@@ -84,7 +84,7 @@ function Popular() {
               Popular items in the past 60 minutes
             </h3> */}
         </div>
-        <div class=" h-full flex justify-center items-center gap-72  dark:bg-[#0c0c0fff]">
+        <div class=" h-full flex justify-center items-center gap-72  dark:bg-[#0c0c0fff] pb-[6px]">
           <div class="lg:grid grid-rows-2 grid-cols-3 gap-12">
             {items.map((x) => {
               return (
