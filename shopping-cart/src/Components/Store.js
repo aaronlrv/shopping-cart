@@ -30,7 +30,7 @@ function Store() {
 
   return (
     <div class="">
-      <div class=" grid grid-rows-[80px,1fr] grid-cols-[0.25fr,1fr] ">
+      <div class=" 2xl:grid grid-rows-[80px,1fr] grid-cols-[0.25fr,1fr] ">
         <div
           className="header-nav"
           class="h-20 shadow-lg col-span-2 bg-white dark:bg-[#1a181aff]             "
@@ -99,7 +99,7 @@ function Store() {
           </div>
         </div>
 
-        <div class="bg-slate-200 shadow-2xl dark:bg-[#0c0c0fff] ">
+        <div class="bg-slate-200 shadow-2xl dark:bg-[#0c0c0fff] hidden 2xl:inline ">
           <div class="flex w-full justify-start items-start shadow-sm ">
             <p class="font-oswald tracking-widest text-2xl pt-8 pl-8 mb-2 text-black dark:text-white ">
               Filters
