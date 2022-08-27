@@ -85,18 +85,18 @@ function Cart({ cart, quantity }) {
                         alt="product"
                       />
                     </div>
-                    <div class="hidden pl-6 pr-2 w-10 sm:inline ">
+                    <div class="hidden pl-6 pr-2 w-10 sm:inline dark:text-white">
                       {x.data.item.name}
                     </div>
                   </div>
 
                   <div
                     className="right side"
-                    class="flex flex-col justify-end items-end w-full"
+                    class="flex flex-col justify-end items-end w-full dark:text-white"
                   >
                     <p>{x.quantity + " " + "Items"}</p>
                     <p>{x.data.item.cost + " " + x.data.item.obtained_type}</p>
-                    <div class="flex gap-10 text-2xl">
+                    <div class="flex gap-10 text-2xl dark:text-white">
                       <button onClick={(e) => quantity(x, e)}>+ </button>
                       <button onClick={(e) => quantity(x, e)}>-</button>
                     </div>
@@ -107,15 +107,15 @@ function Cart({ cart, quantity }) {
           })}
 
           <div class="pt-12">
-            <p class="text-2xl">Total Price: {totalCart}</p>
+            <p class="text-2xl dark:text-white">Total Price: {totalCart}</p>
           </div>
           <div class="pt-4">
             <button
               onClick={() => alert("Thank you for shopping!")}
-              class="relative inline-flex items-center justify-center px-10 py-4 overflow-hidden font-mono font-medium tracking-tighter rounded-lg group bg-slate-50 text-black dark:text-white dark:bg-gray-800 "
+              class="relative inline-flex items-center justify-center px-10 py-4 overflow-hidden font-mono font-medium tracking-tighter rounded-lg group bg-slate-50 text-black dark:text-white dark:bg-zinc-800 "
             >
-              <span class="absolute w-0 h-0 transition-all duration-500 ease-out bg-blue-500 rounded-full group-hover:w-56 group-hover:h-56"></span>
-              <span class="absolute inset-0 w-full h-full -mt-1 rounded-lg opacity-30 bg-gradient-to-b from-transparent via-transparent to-gray-400 dark:to-gray-700"></span>
+              <span class="absolute w-0 h-0 transition-all duration-500 ease-out bg-blue-500 rounded-full group-hover:w-56 group-hover:h-56 dark:bg-zinc-300"></span>
+              <span class="absolute inset-0 w-full h-full -mt-1 rounded-lg opacity-30 bg-gradient-to-b from-transparent via-transparent to-zinc-400 dark:to-zinc-700 "></span>
               <span class="relative">Checkout</span>
             </button>
           </div>
