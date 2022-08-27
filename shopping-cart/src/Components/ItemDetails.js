@@ -38,7 +38,7 @@ function ItemDetails({ addToCart, price }) {
     return (
       <div class="">
         {" "}
-        <div class=" h-fit w-screen grid lg:grid-rows-[80px,1fr] lg:grid-cols-[0.66fr,1fr] grid-rows-[80px,1fr,1fr]">
+        <div class=" h-fit w-screen grid lg:grid-rows-[80px,1fr] lg:grid-cols-[0.66fr,1fr] grid-rows-[80px,1fr,1fr] lg:h-screen">
           <div
             className="header-nav"
             class="h-20 fixed top-0 shadow-md bg-white dark:bg-[#1a181aff] w-full flex justify-between items-center pl-6 md:pl-24 "
@@ -94,9 +94,10 @@ function ItemDetails({ addToCart, price }) {
           <div></div> {/* placement div that fixes page layout*/}
           <div className="photo" class=" bg-[rgba(39,42,176,0.2)] row-span-2">
             <div class="flex justify-center items-center h-full">
-              <div class="h-[40rem] bg-slate-200 w-[37rem] shadow-2xl border-2 border-black border-opacity-20 rounded-lg ">
+              <div class=" bg-slate-200 h-[25rem] w-[22rem]  shadow-2xl border-2 border-black border-opacity-20 rounded-lg lg:w-[37rem] lg:h-[40rem] ">
                 <div class="h-full flex justify-center items-center">
                   <img
+                    class="h-[20rem] w-auto lg:h-auto lg:w-auto"
                     src={item.data.item.images.background}
                     alt="product"
                   ></img>
@@ -104,7 +105,7 @@ function ItemDetails({ addToCart, price }) {
               </div>
             </div>
           </div>
-          <div class="bg-[rgba(57,59,140,0.4)] h-full dark:bg-[#0c0c0fff]">
+          <div class="bg-[rgba(57,59,140,0.4)] h-screen dark:bg-[#0c0c0fff lg:h-full]">
             <div class="pl-[2.2rem] dark:bg-[#0c0c0fff]">
               <div class="mt-28 h-36 flex flex-col justify-center items-start dark:bg-[#0c0c0fff] ">
                 <h3 class="font-oswald text-8xl dark:text-white ">
