@@ -75,7 +75,7 @@ function Cart({ cart, quantity }) {
         <div class="border-solid border-black shadow-2xl w-[17rem] h-[35rem]  mt-12 flex  items-center flex-col overflow-auto 2xl:h-[50rem] 2xl:w-[100rem] sm:h-[40rem] sm:w-[35rem] lg:h-[40rem] lg:w-[50rem] xl:w-[80rem] xl:h-[45rem] dark:bg-zinc-900  ">
           {userCart.map((x) => {
             return (
-              <div class=" w-[15rem]  bg-slate-50 p-10 mt-8 rounded-md sm:w-[30rem] 2xl:w-[96rem] lg:w-[45rem] xl:w-[75rem dark:bg-zinc-700  ">
+              <div class=" w-[15rem]  bg-slate-50 p-10 mt-8 rounded-md sm:w-[30rem] 2xl:w-[96rem] lg:w-[45rem] xl:w-[75rem] dark:bg-zinc-700  ">
                 <div className="content" class="flex flex-row items-center">
                   <div className="left side" class="flex flex-row items-center">
                     <div>
