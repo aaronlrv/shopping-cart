@@ -72,20 +72,22 @@ function Cart({ cart, quantity }) {
       </div>
 
       <div class="h-full w-full flex justify-center items-center">
-        <div class="border-solid border-black shadow-2xl h-[50rem] w-[100rem] mt-12 flex  items-center flex-col overflow-auto ">
+        <div class="border-solid border-black shadow-2xl w-[17rem] h-[35rem]  mt-12 flex  items-center flex-col overflow-auto 2xl:h-[50rem] 2xl:w-[100rem] sm:h-[40rem] sm:w-[35rem] lg:h-[40rem] lg:w-[50rem] xl:w-[80rem] xl:h-[45rem] ">
           {userCart.map((x) => {
             return (
-              <div class="w-[96rem]  bg-slate-50 p-10 mt-8 rounded-md ">
+              <div class=" w-[15rem]  bg-slate-50 p-10 mt-8 rounded-md sm:w-[30rem] 2xl:w-[96rem] lg:w-[45rem] xl:w-[75rem] ">
                 <div className="content" class="flex flex-row items-center">
                   <div className="left side" class="flex flex-row items-center">
                     <div>
                       <img
-                        class="h-20 w-auto"
+                        class="h-24  w-auto 2xl:h-20"
                         src={x.data.item.images.background}
                         alt="product"
                       />
                     </div>
-                    <div class="pl-6 pr-2 w-10">{x.data.item.name}</div>
+                    <div class="hidden pl-6 pr-2 w-10 sm:inline ">
+                      {x.data.item.name}
+                    </div>
                   </div>
 
                   <div
