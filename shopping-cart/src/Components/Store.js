@@ -83,7 +83,7 @@ function Store() {
             </li>
           </ul>
         </div>
-        <div class="bg-slate-200 shadow-2xl dark:bg-[#0c0c0fff] hidden 2xl:block pt-[5rem] h-full w-full row-start-2">
+        <div class="bg-slate-200 shadow-2xl dark:bg-[#0c0c0fff] hidden 2xl:block  h-full w-full row-start-2">
           <p class=" font-oswald tracking-widest text-2xl pt-8 pl-8 mb-2 text-black dark:text-white  dark:bg-[#0c0c0fff] flex w-full justify-start items-start shadow-sm ">
             Filters
           </p>
