@@ -93,7 +93,7 @@ function ItemDetails({ addToCart, price }) {
           </div>
           <div></div> {/* placement div that fixes page layout*/}
           <div className="photo" class=" bg-[rgba(39,42,176,0.2)] row-span-2">
-            <div class="flex justify-center items-center h-full">
+            <div class="flex justify-center items-center h-screen w-full">
               <div class=" bg-slate-200 h-[25rem] w-[22rem]  shadow-2xl border-2 border-black border-opacity-20 rounded-lg md:h-[30rem] md:w-[27rem] lg:w-[37rem] lg:h-[40rem] ">
                 <div class="h-full flex justify-center items-center">
                   <img
