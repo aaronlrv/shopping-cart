@@ -29,91 +29,72 @@ function Unreleased() {
   }, []);
 
   return (
-    <div class="">
-      <div class=" grid grid-rows-[80px,1fr] grid-cols-[0.25fr,1fr] ">
+    <>
+      <div class=" 2xl:grid grid-rows-[80px,1fr] grid-cols-[0.25fr,1fr] h-screen  ">
         <div
           className="header-nav"
-          class="h-20 shadow-lg col-span-2 bg-white dark:bg-[#1a181aff]             "
+          class="h-20 fixed top-0 shadow-md bg-white  dark:bg-[#1a181aff] w-full flex justify-between items-center pl-6 md:pl-24 z-30 col-start-1 col-end-2"
         >
-          <div class="flex flex-row items-center w-full h-full">
-            <div
-              className="header-text"
-              class="h-full w-full flex justify-center items-center"
-            >
-              <Link to="/shop">
-                <p class="font-oswald text-3xl tracking-wider text-black dark:text-white">
-                  Daily Store
-                </p>
-              </Link>
-            </div>
-            <div classname="links" class="pr-12 h-full w-auto mt-0">
-              <ul class="flex flex-row gap-20  justify-center items-center h-full text-3xl">
-                <li>
-                  <div onClick={() => setTheme(colorTheme)}>
-                    {colorTheme === "light" && (
-                      <ion-icon
-                        class="text-white"
-                        name="moon-outline"
-                      ></ion-icon>
-                    )}
-
-                    {colorTheme === "dark" && (
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="h-8 w-8"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        strokeWidth={2}
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
-                        />
-                      </svg>
-                    )}
-                  </div>
-                </li>
-                <Link to="/cart">
-                  <li>
-                    <div class="h-full items-center ">
-                      <ion-icon
-                        class="text-black dark:text-white"
-                        name="cart-outline"
-                      ></ion-icon>
-                    </div>
-                  </li>
-                </Link>
-
-                <Link to="/">
-                  <li>
-                    <ion-icon
-                      class="text-black dark:text-white"
-                      name="home-outline"
-                    ></ion-icon>
-                  </li>
-                </Link>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="bg-slate-200 shadow-2xl dark:bg-[#0c0c0fff] ">
-          <div class="flex w-full justify-start items-start shadow-sm ">
-            <p class="font-oswald tracking-widest text-2xl pt-8 pl-8 mb-2 text-black dark:text-white ">
-              Filters
+          <Link to="/shop">
+            <p class="font-oswald text-3xl tracking-wider text-black dark:text-white">
+              Daily Store
             </p>
-          </div>
-
+          </Link>
+          <ul classname="links" class="flex list-none">
+            <li
+              onClick={() => setTheme(colorTheme)}
+              className="text-3xl pr-6 md:pr-24"
+            >
+              {colorTheme === "light" && (
+                <ion-icon class="text-white" name="moon-outline"></ion-icon>
+              )}
+              {colorTheme === "dark" && (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-8 w-8"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+                  />
+                </svg>
+              )}
+            </li>
+            <li className="text-3xl pr-6 md:pr-24">
+              <Link to="/cart">
+                <ion-icon
+                  class="text-black dark:text-white"
+                  name="cart-outline"
+                ></ion-icon>
+              </Link>
+            </li>
+            <li className="text-3xl pr-6 md:pr-24">
+              <Link to="/">
+                <ion-icon
+                  class="text-black dark:text-white"
+                  name="home-outline"
+                ></ion-icon>
+              </Link>
+            </li>
+          </ul>
+        </div>
+        <div class="bg-slate-200 shadow-2xl dark:bg-[#0c0c0fff] hidden 2xl:block  h-full w-full row-start-2">
+          <p class=" font-oswald tracking-widest text-2xl pt-8 pl-8 mb-2 text-black dark:text-white  dark:bg-[#0c0c0fff] flex w-full justify-start items-start shadow-sm ">
+            Filters
+          </p>
           <form
-            class="flex flex-col justify-start items-start gap-3 pl-8"
+            class="flex flex-col justify-start items-start gap-3 pl-8 dark:bg-[#0c0c0fff]"
             id="userSelection"
           >
             <div>
               <label
                 htmlFor="search"
-                class="w-12 inline-block pr-10 text-black dark:text-white "
+                class="w-12 inline-block pr-10 text-black dark:text-white  dark:bg-[#0c0c0fff]"
               >
                 Search
               </label>
@@ -167,42 +148,22 @@ function Unreleased() {
             </div>
           </form>
         </div>
-
         <div
-          className="parent-items"
-          class="pb-10 bg-[rgba(39,42,176,0.2)] dark:bg-[#0c0c0fff] "
+          className="items"
+          class="grid lg:grid-rows-[repeat(3,18rem)] gap-5 auto-rows-[18rem] lg:grid-cols-3 md:grid-cols-2 dark:bg-[#0c0c0fff] pb-10 row-start-2 col-start-2"
         >
-          <div className="header" class="flex w-full  shadow-sm">
-            <div class="flex justify-start items-center w-full">
-              <p class="font-oswald tracking-widest text-2xl pt-8 pl-8 mb-2 text-black dark:text-white">
-                Upcoming Items
-              </p>
-            </div>
-
-            <div class="flex justify-end items-center w-full">
-              <p class="font-oswald italic tracking-widest text-sm pt-8 pr-8 pl-8 mb-2 text-black dark:text-white">
-                *Note you cannot checkout these items
-              </p>
-            </div>
-          </div>
-
-          <div
-            className="items"
-            class="grid grid-rows-[repeat(3,18rem)] gap-5 auto-rows-[18rem] grid-cols-3"
-          >
-            {
-              <Cards
-                type={type}
-                rarity={rarity}
-                search={search}
-                items={items}
-                theme={colorTheme}
-              />
-            }
-          </div>
+          {
+            <Cards
+              type={type}
+              rarity={rarity}
+              search={search}
+              items={items}
+              theme={colorTheme}
+            />
+          }
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
