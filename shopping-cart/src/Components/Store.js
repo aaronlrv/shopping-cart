@@ -84,21 +84,21 @@ function Store() {
           </ul>
         </div>
 
-        <div class="bg-slate-200 shadow-2xl dark:bg-[#0c0c0fff] hidden 2xl:inline pt-[5rem] ">
-          <div class="flex w-full justify-start items-start shadow-sm ">
-            <p class="font-oswald tracking-widest text-2xl pt-8 pl-8 mb-2 text-black dark:text-white ">
+        <div class="bg-slate-200 shadow-2xl dark:bg-[#0c0c0fff] hidden 2xl:block pt-[5rem] h-full w-full ">
+          <div class="flex w-full justify-start items-start shadow-sm dark:bg-[#0c0c0fff]">
+            <p class=" font-oswald tracking-widest text-2xl pt-8 pl-8 mb-2 text-black dark:text-white  dark:bg-[#0c0c0fff]">
               Filters
             </p>
           </div>
 
           <form
-            class="flex flex-col justify-start items-start gap-3 pl-8"
+            class="flex flex-col justify-start items-start gap-3 pl-8 dark:bg-[#0c0c0fff]"
             id="userSelection"
           >
             <div>
               <label
                 htmlFor="search"
-                class="w-12 inline-block pr-10 text-black dark:text-white "
+                class="w-12 inline-block pr-10 text-black dark:text-white  dark:bg-[#0c0c0fff]"
               >
                 Search
               </label>
@@ -165,7 +165,7 @@ function Store() {
 
           <div
             className="items"
-            class="grid lg:grid-rows-[repeat(3,18rem)] gap-5 auto-rows-[18rem] lg:grid-cols-3 md:grid-cols-2"
+            class="grid lg:grid-rows-[repeat(3,18rem)] gap-5 auto-rows-[18rem] lg:grid-cols-3 md:grid-cols-2 dark:bg-[#0c0c0fff] pb-10"
           >
             {
               <Cards
