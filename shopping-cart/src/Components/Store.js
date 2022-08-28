@@ -29,11 +29,11 @@ function Store() {
   }, []);
 
   return (
-    <div class="">
+    <>
       <div class=" 2xl:grid grid-rows-[80px,1fr] grid-cols-[0.25fr,1fr] h-screen  ">
         <div
           className="header-nav"
-          class="h-20 fixed top-0 shadow-md bg-white  dark:bg-[#1a181aff] w-full flex justify-between items-center pl-6 md:pl-24 z-30 "
+          class="h-20 fixed top-0 shadow-md bg-white  dark:bg-[#1a181aff] w-full flex justify-between items-center pl-6 md:pl-24 z-30 col-start-1 col-end-2"
         >
           <Link to="/shop">
             <p class="font-oswald text-3xl tracking-wider text-black dark:text-white">
@@ -83,13 +83,10 @@ function Store() {
             </li>
           </ul>
         </div>
-        <div class="bg-slate-200 shadow-2xl dark:bg-[#0c0c0fff] hidden 2xl:block pt-[5rem] h-full w-full ">
-          <div class="flex w-full justify-start items-start shadow-sm dark:bg-[#0c0c0fff]">
-            <p class=" font-oswald tracking-widest text-2xl pt-8 pl-8 mb-2 text-black dark:text-white  dark:bg-[#0c0c0fff]">
-              Filters
-            </p>
-          </div>
-
+        <div class="bg-slate-200 shadow-2xl dark:bg-[#0c0c0fff] hidden 2xl:block pt-[5rem] h-full w-full row-start-2">
+          <p class=" font-oswald tracking-widest text-2xl pt-8 pl-8 mb-2 text-black dark:text-white  dark:bg-[#0c0c0fff] flex w-full justify-start items-start shadow-sm ">
+            Filters
+          </p>
           <form
             class="flex flex-col justify-start items-start gap-3 pl-8 dark:bg-[#0c0c0fff]"
             id="userSelection"
@@ -151,34 +148,22 @@ function Store() {
             </div>
           </form>
         </div>
-
-        <div className="parent-items" class="pb-10 dark:bg-[#0c0c0fff] ">
-          <div
-            className="header"
-            class="flex w-full justify-start items-start shadow-sm"
-          >
-            <p class="font-oswald tracking-widest text-2xl pt-8 pl-8 mb-2 text-black dark:text-white">
-              Items
-            </p>
-          </div>
-
-          <div
-            className="items"
-            class="grid lg:grid-rows-[repeat(3,18rem)] gap-5 auto-rows-[18rem] lg:grid-cols-3 md:grid-cols-2 dark:bg-[#0c0c0fff] pb-10"
-          >
-            {
-              <Cards
-                type={type}
-                rarity={rarity}
-                search={search}
-                items={items}
-                theme={colorTheme}
-              />
-            }
-          </div>
+        <div
+          className="items"
+          class="grid lg:grid-rows-[repeat(3,18rem)] gap-5 auto-rows-[18rem] lg:grid-cols-3 md:grid-cols-2 dark:bg-[#0c0c0fff] pb-10 row-start-2 col-start-2"
+        >
+          {
+            <Cards
+              type={type}
+              rarity={rarity}
+              search={search}
+              items={items}
+              theme={colorTheme}
+            />
+          }
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
