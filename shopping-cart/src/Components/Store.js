@@ -168,7 +168,7 @@ function Store() {
 
           <div
             className="items"
-            class="grid grid-rows-[repeat(3,18rem)] gap-5 auto-rows-[18rem] grid-cols-3"
+            class="grid lg:grid-rows-[repeat(3,18rem)] gap-5 auto-rows-[18rem] lg:grid-cols-3 md:grid-cols-2"
           >
             {
               <Cards
