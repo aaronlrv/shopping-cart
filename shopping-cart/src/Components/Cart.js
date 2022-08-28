@@ -108,6 +108,9 @@ function Cart({ cart, quantity }) {
 
           <div class="pt-12">
             <p class="text-2xl dark:text-white">Total Price: {totalCart}</p>
+            <p class="text-sm italic dark:text-white">
+              *note you cannot checkout unreleased items
+            </p>
           </div>
           <div class="pt-4">
             <button
