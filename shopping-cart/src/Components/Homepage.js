@@ -4,17 +4,18 @@ import React from "react";
 import Typical from "react-typical";
 import Typewriter from "typewriter-effect";
 import { Link } from "react-router-dom";
+import bg from "./bg.jpg";
 
 function Homepage() {
   return (
     <div
       style={{
-        backgroundImage: "url('./bg.jpg')",
+        backgroundImage: `url(${bg})`,
         backgroundPosition: "center",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
       }}
-      class="h-screen max-w-base "
+      class="h-screen max-w-base"
     >
       <div
         className="Hero"
