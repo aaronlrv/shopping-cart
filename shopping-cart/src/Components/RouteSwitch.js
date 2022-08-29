@@ -97,6 +97,7 @@ function RouteSwitch() {
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/shopping-cart" element={<Homepage />} />
+        <Route path="/shopping-cart/" element={<Homepage />} />
 
         <Route path="/shop" element={<Store />} />
         <Route
