@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 function Homepage() {
   return (
-    <div class="h-screen bg-[url('/home/aaron/odin-projects/shopping-cart/shopping-cart/src/bg.jpg')] max-w-base">
+    <div class="h-screen max-w-base bg-cover w-screen bg-home ">
       <div
         className="Hero"
         class="h-full w-full flex flex-col justify-center items-center gap-3"

@@ -11,6 +11,9 @@ module.exports = {
         chinese: ["ZCOOL QingKe HuangYou", "cursive"],
         oswald: ["Oswald", "sans-serif"],
       },
+      backgroundImage: {
+        home: "url(/bg.jpg)",
+      },
     },
   },
   plugins: [],
