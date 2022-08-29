@@ -9,7 +9,7 @@ function Homepage() {
   return (
     <div
       style={{
-        backgroundImage: "url(" + "./bg.jpg" + ")",
+        backgroundImage: "url('./bg.jpg')",
         backgroundPosition: "center",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
