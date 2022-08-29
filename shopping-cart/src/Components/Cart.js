@@ -72,7 +72,7 @@ function Cart({ cart, quantity }) {
       </div>
 
       <div class="h-full w-full flex justify-center items-center dark:bg-[#0c0c0fff]">
-        <div class="border-solid border-black shadow-2xl w-[17rem] h-[35rem]  mt-12 pt-3 flex  items-center flex-col overflow-auto 2xl:h-[45rem] 2xl:w-[100rem] sm:h-[40rem] sm:w-[35rem] lg:h-[35rem] lg:w-[50rem] xl:w-[80rem] ] dark:bg-zinc-900  ">
+        <div class="border-solid border-black shadow-2xl w-[17rem] h-[35rem]  mt-12 pt-3 flex  items-center flex-col overflow-auto sm:h-[40rem] sm:w-[35rem]  lg:w-[50rem] xl:w-[80rem] 2xl:h-[45rem] 2xl:w-[100rem]  dark:bg-zinc-900  ">
           {userCart.map((x) => {
             return (
               <div class=" w-[15rem]  bg-slate-50 p-10 mt-8 rounded-md sm:w-[30rem] 2xl:w-[96rem] lg:w-[45rem] xl:w-[75rem] dark:bg-zinc-700  ">
