@@ -7,7 +7,15 @@ import { Link } from "react-router-dom";
 
 function Homepage() {
   return (
-    <div class="h-screen max-w-base bg-cover w-screen bg-home ">
+    <div
+      style={{
+        backgroundImage: "url(" + "./bg.jpg" + ")",
+        backgroundPosition: "center",
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+      }}
+      class="h-screen max-w-base "
+    >
       <div
         className="Hero"
         class="h-full w-full flex flex-col justify-center items-center gap-3"
