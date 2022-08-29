@@ -72,7 +72,7 @@ function Cart({ cart, quantity }) {
       </div>
 
       <div class="h-full w-full flex justify-center items-center dark:bg-[#0c0c0fff]">
-        <div class="border-solid border-black shadow-2xl w-[17rem] h-[35rem]  mt-12 flex  items-center flex-col overflow-auto 2xl:h-[50rem] 2xl:w-[100rem] sm:h-[40rem] sm:w-[35rem] lg:h-[40rem] lg:w-[50rem] xl:w-[80rem] xl:h-[45rem] dark:bg-zinc-900  ">
+        <div class="border-solid border-black shadow-2xl w-[17rem] h-[35rem]  mt-12 pt-3 flex  items-center flex-col overflow-auto 2xl:h-[45rem] 2xl:w-[100rem] sm:h-[40rem] sm:w-[35rem] lg:h-[35rem] lg:w-[50rem] xl:w-[80rem] ] dark:bg-zinc-900  ">
           {userCart.map((x) => {
             return (
               <div class=" w-[15rem]  bg-slate-50 p-10 mt-8 rounded-md sm:w-[30rem] 2xl:w-[96rem] lg:w-[45rem] xl:w-[75rem] dark:bg-zinc-700  ">
@@ -106,21 +106,21 @@ function Cart({ cart, quantity }) {
             );
           })}
 
-          <div class="pt-12">
+          <div class="pt-12 h-full flex flex-col justify-center">
             <p class="text-2xl dark:text-white">Total Price: {totalCart}</p>
             <p class="text-sm italic dark:text-white">
               *note you cannot checkout unreleased items
             </p>
-          </div>
-          <div class="pt-4">
-            <button
-              onClick={() => alert("Thank you for shopping!")}
-              class="relative inline-flex items-center justify-center px-10 py-4 overflow-hidden font-mono font-medium tracking-tighter rounded-lg group bg-slate-50 text-black dark:text-white dark:bg-zinc-800 "
-            >
-              <span class="absolute w-0 h-0 transition-all duration-500 ease-out bg-blue-500 rounded-full group-hover:w-56 group-hover:h-56 dark:bg-zinc-300"></span>
-              <span class="absolute inset-0 w-full h-full -mt-1 rounded-lg opacity-30 bg-gradient-to-b from-transparent via-transparent to-zinc-400 dark:to-zinc-700 "></span>
-              <span class="relative">Checkout</span>
-            </button>
+            <div class="pt-4">
+              <button
+                onClick={() => alert("Thank you for shopping!")}
+                class="relative inline-flex items-center justify-center px-10 py-4 overflow-hidden font-mono font-medium tracking-tighter rounded-lg group bg-slate-50 text-black dark:text-white dark:bg-zinc-800 "
+              >
+                <span class="absolute w-0 h-0 transition-all duration-500 ease-out bg-blue-500 rounded-full group-hover:w-56 group-hover:h-56 dark:bg-zinc-300"></span>
+                <span class="absolute inset-0 w-full h-full -mt-1 rounded-lg opacity-30 bg-gradient-to-b from-transparent via-transparent to-zinc-400 dark:to-zinc-700 "></span>
+                <span class="relative">Checkout</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
