@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, HashRouter } from "react-router-dom";
 import Homepage from "./Homepage";
 import Store from "./Store";
 import Unreleased from "./Unreleased";
@@ -93,7 +93,7 @@ function RouteSwitch() {
   }
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/shopping-cart" element={<Homepage />} />
@@ -116,7 +116,7 @@ function RouteSwitch() {
           element={<Cart cart={[...cart]} quantity={quantity} />}
         />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
