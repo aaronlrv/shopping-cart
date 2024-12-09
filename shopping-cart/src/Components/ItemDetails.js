@@ -7,34 +7,41 @@ import React from "react";
 function ItemDetails({ addToCart, price }) {
   let [item, setItem] = useState(null);
   let [cost, setCost] = useState(null);
-  console.log(addToCart);
   let id = useParams().id;
-  let passId = id;
+  console.log(id)
   let [setTheme, colorTheme] = useDarkMode();
 
+
   useEffect(() => {
-    async function gatherData() {
-      console.log("id", id);
-      let data = await fetch(
-        `https://fortnite-api.theapinetwork.com/item/get?id=${id}`,
-        { mode: "cors" }
-      );
-      console.log(data);
-      let dataJson = await data.json();
-      setItem(dataJson);
-
-      let cost = await price(id);
-      setCost(cost);
+    async function fetchData() {
+      try {
+        
+        console.log("Fetching item details for ID:", id);
+        const response = await fetch(`https://fortnite-api.com/v2/cosmetics/br/${id}`);
+        const data = await response.json();
+  
+        console.log("API response:", data);
+  
+        // Safely access the `data` field
+        if (data.status === 200 && data.data) {
+          setItem(data.data); // Correctly set the item
+          console.log("Item set:", data.data);
+        } else {
+          console.error("Unexpected response format:", data);
+          setItem(null); // Set to null if the structure is invalid
+        }
+      } catch (error) {
+        console.error("Error fetching item details:", error);
+        setItem(null); // Handle fetch errors
+      }
     }
-    gatherData();
+    fetchData();
+  }, [id]);
 
-    console.log(item);
-    console.log(cost);
-  }, []);
 
   //   return item.map((x) => {
   // return item.map((x) => {
-  if (item !== null && cost !== null) {
+  if (item !== null) {
     return (
       <div class="">
         {" "}
@@ -98,8 +105,8 @@ function ItemDetails({ addToCart, price }) {
                 <div class="h-full flex justify-center items-center">
                   <img
                     class="h-[20rem] w-auto md:h-[25rem] lg:h-auto lg:w-auto"
-                    src={item.data.item.images.background}
-                    alt="product"
+                    src={item.images.icon}
+                    alt={item.name}
                   ></img>
                 </div>
               </div>
@@ -109,27 +116,28 @@ function ItemDetails({ addToCart, price }) {
             <div class="pl-[2.2rem] dark:bg-[#0c0c0fff]">
               <div class="mt-28 h-36 flex flex-col justify-center items-start dark:bg-[#0c0c0fff] ">
                 <h3 class="font-oswald pb-2 text-6xl sm:text-7xl lg:text-8xl   dark:text-white ">
-                  {item.data.item.name}
+                  {item.name}
                 </h3>
                 <p class="font-oswald text-3xl dark:text-white ">
-                  {item.data.item.description}
+                {item.description}
                 </p>
                 <p class="font-oswald text-xl dark:text-white ">
-                  Rarity: {item.data.item.rarity}
+                  Rarity:  {item.type.displayValue}
                 </p>
                 <p class="font-oswald text-xl dark:text-white ">
-                  Type: {item.data.item.type}
+                  Type: {item.rarity.displayValue}
                 </p>
                 <p class="font-oswald text-xl dark:text-white ">
-                  Rating: {item.data.item.ratings.avgStars}
+                  Introduced: {item.introduction.text}
                 </p>
               </div>
-
+              {/*
               <div class="flex mt-28 h-36">
                 <p class="font-oswald text-5xl dark:text-white ">
                   {cost} VBUCKS
                 </p>
               </div>
+              */}
               {/* <Link to="/cart" state={{ items: item }}> */}
               <div class="flex justify-start- items-center ">
                 <button

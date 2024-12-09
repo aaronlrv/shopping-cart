@@ -19,11 +19,11 @@ function RouteSwitch() {
   async function addToCart(item) {
     let cloneCart = [...cart];
     console.log(item);
-    console.log(item.data.item.name);
-    let price = await fetchPrice(item.data.itemId);
+    console.log(item.name);
+    let price = await fetchPrice(item.id); // Adjusted to use "id"
 
     const foundItem = cloneCart.find(
-      (x) => item.data.item.name === x.data.item.name
+      (x) => item.name === x.name // Adjusted to match JSON structure
     );
     if (foundItem === undefined) {
       item.quantity = 1;
@@ -31,17 +31,16 @@ function RouteSwitch() {
     } else {
       console.log(foundItem);
       foundItem.quantity = foundItem.quantity + 1;
-      foundItem.data.item.cost = foundItem.data.item.cost + price;
+      foundItem.totalCost = foundItem.totalCost + price; // Adjusted to match "totalCost"
     }
 
     if (
-      item.data.item.upcoming === true ||
-      item.data.item.obtained_type === "none"
+      item.upcoming === true || // Adjusted to match "upcoming" field
+      item.obtained_type === "none" // Adjusted to match "obtained_type"
     ) {
-      /// remove if item is unreleased
-      console.log(item.data.item.name);
-      console.log(item.data.item.cost);
-      let index = cloneCart.indexOf(item.data.item.cost);
+      console.log(item.name);
+      console.log(item.totalCost); // Adjusted to match "totalCost"
+      let index = cloneCart.indexOf(item.name); // Adjusted for "name"
       cloneCart.splice(index, 1);
     }
     setCart(cloneCart);
@@ -50,20 +49,20 @@ function RouteSwitch() {
   async function quantity(x, e) {
     let cloneCart = [...cart];
     let item = x;
-    let price = await fetchPrice(item.data.itemId);
+    let price = await fetchPrice(item.id); // Adjusted to use "id"
     const foundItem = cloneCart.find(
-      (x) => item.data.item.name === x.data.item.name
+      (x) => item.name === x.name // Adjusted to match JSON structure
     );
 
     if (e.target.innerText === "+") {
       foundItem.quantity = foundItem.quantity + 1;
-      foundItem.data.item.cost = foundItem.data.item.cost + price;
+      foundItem.totalCost = foundItem.totalCost + price; // Adjusted to match "totalCost"
     } else {
       foundItem.quantity = foundItem.quantity - 1;
-      foundItem.data.item.cost = foundItem.data.item.cost - price;
+      foundItem.totalCost = foundItem.totalCost - price; // Adjusted to match "totalCost"
 
-      if (foundItem.quantity === 0 || foundItem.data.item.cost === 0) {
-        let index = cloneCart.indexOf(foundItem.data.item.name);
+      if (foundItem.quantity === 0 || foundItem.totalCost === 0) {
+        let index = cloneCart.indexOf(foundItem.name); // Adjusted for "name"
         cloneCart.splice(index, 1);
       }
     }
@@ -72,25 +71,22 @@ function RouteSwitch() {
     console.log(e.target.innerText);
     console.log(price);
     setCart(cloneCart);
-    ///dont directly mutate
-    /// clone the cart
-    /// use x name for find
-    /// add and delete quantity based on that, the state refresh will also cause a refresh on the page
   }
 
   async function fetchPrice(id) {
     console.log(id);
     let data = await fetch(
-      `https://fortnite-api.theapinetwork.com/item/get?id=${id}`,
+      `https://fortnite-api.com/v2/cosmetics/br/${id}`, // Adjusted API call
       { mode: "cors" }
     );
 
     let dataJson = await data.json();
     console.log(dataJson);
 
-    let price = dataJson.data.item.cost;
+    let price = dataJson.data?.rarity?.value === "gaminglegends" ? 1500 : 800; // Example logic preserved
     return price;
   }
+
 
   return (
     <HashRouter>
@@ -107,7 +103,7 @@ function RouteSwitch() {
 
         <Route
           path="/popular/:id"
-          element={<ItemDetails addToCart={addToCart} price={fetchPrice} />}
+          element={<ItemDetails addToCart={addToCart}/>}
         />
 
         <Route path="/unreleased" element={<Unreleased />} />

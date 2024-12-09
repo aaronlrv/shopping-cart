@@ -7,20 +7,22 @@ function Popular() {
   let [items, setItems] = useState([]);
   let [setTheme, colorTheme] = useDarkMode();
 
-  useEffect(() => {
-    async function getItems() {
-      let dataItems = await fetch(
-        "https://fortnite-api.theapinetwork.com/items/popular",
-        { mode: "cors" }
-      );
 
-      let dataJson = await dataItems.json();
-      console.log(dataJson);
-      setItems(dataJson.entries[1].entries);
-      console.log(dataJson.entries[1].entries);
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await fetch("https://fortnite-api.com/v2/cosmetics/new", { mode: "cors" });
+        const data = await response.json();
+
+        // Access items from the API response
+        const cosmetics = data.data.items.br || []; // Ensure `br` is accessed safely
+        setItems(cosmetics);
+      } catch (error) {
+        console.error("Error fetching cosmetics data:", error);
+      }
     }
 
-    getItems();
+    fetchData();
   }, []);
 
   return (
@@ -87,9 +89,11 @@ function Popular() {
         <div class=" h-full flex justify-center items-center gap-72  dark:bg-[#0c0c0fff] pb-[6px]">
           <div class="lg:grid grid-rows-2 grid-cols-3 gap-12">
             {items.map((x) => {
+                console.log(x); // Log each item
+
               return (
                 <>
-                  <Link to={`/popular/${x.identifier}`}>
+                  <Link to={`/popular/${x.id}`}>
                     <div
                       className="card"
                       class="h-[24rem] w-[300px] gap-6 m-5 grid grid-rows-[100,100] grid-cols-2 shadow-md transition ease-in-out delay-100  hover:scale-105 duration-300 bg-slate-100  dark:bg-[#1a181aff] sm:w-[25rem] md:w-[35rem] lg:w-[20rem] xl:w-[25rem] 2xl:w-[30rem]  "
@@ -97,7 +101,7 @@ function Popular() {
                       <div class="h-full flex justify-start items-center row-span-2">
                         <img
                           class="h-44 w-auto "
-                          src={x.images.transparent}
+                          src={x.images.icon}
                           alt="fortnite skin"
                         />
                       </div>
@@ -111,7 +115,7 @@ function Popular() {
                       </div>
                       <div class="flex justify-center items-center">
                         <a
-                          href={x.identifier}
+                          href={x.id}
                           class="relative inline-block text-lg group"
                         >
                           <span class="relative z-10 block px-5 py-3 overflow-hidden font-medium leading-tight text-gray-800 transition-colors duration-300 ease-out border-2 border-[#272AB0] 0 rounded-lg group-hover:text-white">
@@ -133,37 +137,7 @@ function Popular() {
           </div>
         </div>
       </div>
-
-      {/* <div
-          className="parent-items"
-          class="pb-10 bg-[rgba(39,42,176,0.2)] dark:bg-[#0c0c0fff] "
-        >
-          <div
-            className="header"
-            class="flex w-full justify-start items-start shadow-sm"
-          >
-            <p class="font-oswald tracking-widest text-2xl pt-8 pl-8 mb-2 text-black dark:text-white">
-              Items
-            </p>
-          </div>
-
-          <div
-            className="items"
-            class="grid grid-rows-[repeat(3,18rem)] gap-5 auto-rows-[18rem] grid-cols-3"
-          >
-            {
-              <Cards
-                type={type}
-                rarity={rarity}
-                search={search}
-                items={items}
-                theme={colorTheme}
-              />
-            }
-          </div>
-        </div> */}
     </div>
-    // </div>
   );
 }
 export default Popular;
