@@ -9,7 +9,6 @@ function Cards({ type, rarity, search, items, theme }) {
   if (theme === "dark") {
     if (search !== undefined) {
       return items.map((x) => {
-        if (x.item.name === search) {
           return (
             <>
               <Link to={`/shop/${x.itemId}`}>
@@ -20,15 +19,15 @@ function Cards({ type, rarity, search, items, theme }) {
                   <div class="h-full flex justify-start items-center row-span-2">
                     <img
                       class="h-48 w-auto "
-                      src={x.item.images.icon}
-                      alt="fortnite skin"
+                      src={x.image}
+                      alt={x.name}
                     />
                   </div>
                   <div class="flex flex-col justify-center items-center">
                     <p class="font-chinese text-3xl tracking-wider text-black">
-                      {x.item.name}
+                      {x.name}
                     </p>
-                    <p class="text-">{x.item.description}</p>
+                    <p class="text-">{x.description}</p>
                   </div>
                   <div class="flex justify-center items-center">
                     <a
@@ -51,7 +50,7 @@ function Cards({ type, rarity, search, items, theme }) {
             </>
           );
         }
-      });
+      );
     }
     /// light mode styling
     if (search === undefined && rarity === undefined && type === undefined) {
@@ -66,15 +65,15 @@ function Cards({ type, rarity, search, items, theme }) {
                 <div class="h-full flex justify-start items-center row-span-2">
                   <img
                     class="h-48 w-auto "
-                    src={x.item.images.icon}
-                    alt="fortnite skin"
+                    src={x.image}
+                    alt={x.name}
                   />
                 </div>
                 <div class="flex flex-col justify-center items-center">
                   <p class="font-chinese text-3xl tracking-wider text-black">
-                    {x.item.name}
+                    {x.name}
                   </p>
-                  <p class="text-">{x.item.description}</p>
+                  <p class="text-">{x.description}</p>
                 </div>
                 <div class="flex justify-center items-center">
                   <a
@@ -111,15 +110,15 @@ function Cards({ type, rarity, search, items, theme }) {
                   <div class="h-full flex justify-start items-center row-span-2">
                     <img
                       class="h-48 w-auto "
-                      src={x.item.images.icon}
-                      alt="fortnite skin"
+                      src={x.image}
+                      alt={x.name}
                     />
                   </div>
                   <div class="flex flex-col justify-center items-center">
                     <p class="font-chinese text-3xl tracking-wider text-black">
-                      {x.item.name}
+                      {x.name}
                     </p>
-                    <p class="text-">{x.item.description}</p>
+                    <p class="text-">{x.description}</p>
                   </div>
                   <div class="flex justify-center items-center">
                     <a
@@ -157,15 +156,15 @@ function Cards({ type, rarity, search, items, theme }) {
                   <div class="h-full flex justify-start items-center row-span-2">
                     <img
                       class="h-48 w-auto "
-                      src={x.item.images.icon}
-                      alt="fortnite skin"
+                      src={x.image}
+                      alt={x.name}
                     />
                   </div>
                   <div class="flex flex-col justify-center items-center">
                     <p class="font-chinese text-3xl tracking-wider text-black">
-                      {x.item.name}
+                      {x.name}
                     </p>
-                    <p class="text-">{x.item.description}</p>
+                    <p class="text-">{x.description}</p>
                   </div>
                   <div class="flex justify-center items-center">
                     <a
@@ -203,15 +202,15 @@ function Cards({ type, rarity, search, items, theme }) {
                   <div class="h-full flex justify-start items-center row-span-2">
                     <img
                       class="h-48 w-auto "
-                      src={x.item.images.icon}
-                      alt="fortnite skin"
+                      src={x.image}
+                      alt={x.name}
                     />
                   </div>
                   <div class="flex flex-col justify-center items-center">
                     <p class="font-chinese text-3xl tracking-wider text-black">
-                      {x.item.name}
+                      {x.name}
                     </p>
-                    <p class="text-">{x.item.description}</p>
+                    <p class="text-">{x.description}</p>
                   </div>
                   <div class="flex justify-center items-center">
                     <a
@@ -247,15 +246,15 @@ function Cards({ type, rarity, search, items, theme }) {
                 <div class="h-full flex justify-start items-center row-span-2">
                   <img
                     class="h-48 w-auto "
-                    src={x.item.images.icon}
-                    alt="fortnite skin"
+                    src={x.image}
+                    alt={x.name}
                   />
                 </div>
                 <div class="flex flex-col justify-center items-center">
                   <p class="font-chinese text-3xl tracking-wider text-black">
-                    {x.item.name}
+                    {x.name}
                   </p>
-                  <p class="text-">{x.item.description}</p>
+                  <p class="text-">{x.description}</p>
                 </div>
                 <div class="flex justify-center items-center">
                   <a
@@ -293,15 +292,15 @@ function Cards({ type, rarity, search, items, theme }) {
                   <div class="h-full flex justify-start items-center row-span-2">
                     <img
                       class="h-48 w-auto "
-                      src={x.item.images.icon}
-                      alt="fortnite skin"
+                      src={x.image}
+                      alt={x.name}
                     />
                   </div>
                   <div class="flex flex-col justify-center items-center">
                     <p class="font-chinese text-3xl tracking-wider text-white">
-                      {x.item.name}
+                      {x.name}
                     </p>
-                    <p class="text-blue-200">{x.item.description}</p>
+                    <p class="text-blue-200">{x.description}</p>
                   </div>
                   <div class="flex justify-center items-center">
                     <a
@@ -340,15 +339,15 @@ function Cards({ type, rarity, search, items, theme }) {
                 <div class="h-full flex justify-start items-center row-span-2">
                   <img
                     class="h-48 w-auto "
-                    src={x.item.images.icon}
-                    alt="fortnite skin"
+                    src={x.image}
+                    alt={x.name}
                   />
                 </div>
                 <div class="flex flex-col justify-center items-center">
                   <p class="font-chinese text-3xl tracking-wider text-white">
-                    {x.item.name}
+                    {x.name}
                   </p>
-                  <p class="text-blue-200">{x.item.description}</p>
+                  <p class="text-blue-200">{x.description}</p>
                 </div>
                 <div class="flex justify-center items-center">
                   <a
@@ -384,15 +383,15 @@ function Cards({ type, rarity, search, items, theme }) {
                   <div class="h-full flex justify-start items-center row-span-2">
                     <img
                       class="h-48 w-auto "
-                      src={x.item.images.icon}
-                      alt="fortnite skin"
+                      src={x.image}
+                      alt={x.name}
                     />
                   </div>
                   <div class="flex flex-col justify-center items-center">
                     <p class="font-chinese text-3xl tracking-wider text-white">
-                      {x.item.name}
+                      {x.name}
                     </p>
-                    <p class="text-blue-200">{x.item.description}</p>
+                    <p class="text-blue-200">{x.description}</p>
                   </div>
                   <div class="flex justify-center items-center">
                     <a
@@ -429,15 +428,15 @@ function Cards({ type, rarity, search, items, theme }) {
                   <div class="h-full flex justify-start items-center row-span-2">
                     <img
                       class="h-48 w-auto "
-                      src={x.item.images.icon}
-                      alt="fortnite skin"
+                      src={x.image}
+                      alt={x.name}
                     />
                   </div>
                   <div class="flex flex-col justify-center items-center">
                     <p class="font-chinese text-3xl tracking-wider text-white">
-                      {x.item.name}
+                      {x.name}
                     </p>
-                    <p class="text-blue-200">{x.item.description}</p>
+                    <p class="text-blue-200">{x.description}</p>
                   </div>
                   <div class="flex justify-center items-center">
                     <a
@@ -474,15 +473,15 @@ function Cards({ type, rarity, search, items, theme }) {
                   <div class="h-full flex justify-start items-center row-span-2">
                     <img
                       class="h-48 w-auto "
-                      src={x.item.images.icon}
-                      alt="fortnite skin"
+                      src={x.image}
+                      alt={x.name}
                     />
                   </div>
                   <div class="flex flex-col justify-center items-center">
                     <p class="font-chinese text-3xl tracking-wider text-white">
-                      {x.item.name}
+                      {x.name}
                     </p>
-                    <p class="text-blue-200">{x.item.description}</p>
+                    <p class="text-blue-200">{x.description}</p>
                   </div>
                   <div class="flex justify-center items-center">
                     <a
@@ -518,15 +517,15 @@ function Cards({ type, rarity, search, items, theme }) {
                 <div class="h-full flex justify-start items-center row-span-2">
                   <img
                     class="h-48 w-auto "
-                    src={x.item.images.icon}
-                    alt="fortnite skin"
+                    src={x.image}
+                    alt={x.name}
                   />
                 </div>
                 <div class="flex flex-col justify-center items-center">
                   <p class="font-chinese text-3xl tracking-wider text-white">
-                    {x.item.name}
+                    {x.name}
                   </p>
-                  <p class="text-blue-200">{x.item.description}</p>
+                  <p class="text-blue-200">{x.description}</p>
                 </div>
                 <div class="flex justify-center items-center">
                   <a

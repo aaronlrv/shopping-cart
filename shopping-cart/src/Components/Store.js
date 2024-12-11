@@ -1,4 +1,3 @@
-import { render } from "@testing-library/react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Cards from "./Cards";
@@ -9,20 +8,56 @@ function Store() {
   let [type, setType] = useState();
   let [search, setSearch] = useState();
   let [rarity, setRarity] = useState();
-  let [refresh, setRefresh] = useState();
   let [setTheme, colorTheme] = useDarkMode();
 
   useEffect(() => {
     async function getItems() {
-      let dataItems = await fetch(
-        "https://fortnite-api.theapinetwork.com/store/get",
-        { mode: "cors" }
-      );
+      try {
+        const response = await fetch("https://fortnite-api.com/v2/shop", { mode: "cors" });
+        const data = await response.json();
 
-      let dataJson = await dataItems.json();
-      console.log(dataJson);
-      setItems(dataJson.data);
-      console.log(dataJson.data);
+        if (data.status === 200 && data.data.entries) {
+          const formattedItems = data.data.entries.map((entry) => {
+            // Check if entry is a track (music item)
+            if (entry.tracks && entry.tracks.length > 0) {
+              return {
+                itemId: entry.tracks[0].id, // Use the track ID
+                name: entry.tracks[0].title || "Unnamed",
+                description: entry.offerTag?.text || "No description available",
+                price: entry.finalPrice || "N/A",
+                image: entry.tracks[0].albumArt || "https://via.placeholder.com/150",
+              };
+            }
+        
+            // Check if entry is a regular skin/item
+            if (entry.brItems && entry.brItems.length > 0) {
+              return {
+                itemId: entry.brItems[0].id, // Use the item ID from brItems
+                name: entry.brItems[0].name || "Unnamed",
+                description: entry.brItems[0].description || "No description available",
+                price: entry.finalPrice || "N/A",
+                image:
+                  entry.brItems[0].images?.featured ||
+                  entry.brItems[0].images?.icon ||
+                  "https://via.placeholder.com/150",
+              };
+            }
+        
+            // Default fallback (if no valid data found)
+            return {
+              id: entry.offerId,
+              name: "Unnamed",
+              description: "No description available",
+              price: entry.finalPrice || "N/A",
+              image: "https://via.placeholder.com/150",
+            };
+          });
+          setItems(formattedItems);
+        }
+        
+      } catch (error) {
+        console.error("Error fetching shop data:", error);
+      }
     }
 
     getItems();
@@ -30,28 +65,24 @@ function Store() {
 
   return (
     <>
-      <div class=" 2xl:grid grid-rows-[80px,1fr] grid-cols-[0.25fr,1fr] h-screen  ">
-        <div
-          className="header-nav"
-          class="h-20 fixed top-0 shadow-md bg-white  dark:bg-[#1a181aff] w-full flex justify-between items-center pl-6 md:pl-24 z-30 col-start-1 col-end-2"
-        >
+      <div className="2xl:grid grid-rows-[80px,1fr] grid-cols-[0.25fr,1fr] h-screen">
+        <div className="header-nav h-20 fixed top-0 shadow-md bg-white dark:bg-[#1a181aff] w-full flex justify-between items-center pl-6 md:pl-24 z-30 col-start-1 col-end-2">
           <Link to="/shop">
-            <p class="font-oswald text-3xl tracking-wider text-black dark:text-white">
+            <p className="font-oswald text-3xl tracking-wider text-black dark:text-white">
               Daily Store
             </p>
           </Link>
-          <ul classname="links" class="flex list-none">
+          <ul className="links flex list-none">
             <li
               onClick={() => setTheme(colorTheme)}
               className="text-3xl pr-6 md:pr-24"
             >
-              {colorTheme === "light" && (
-                <ion-icon class="text-white" name="moon-outline"></ion-icon>
-              )}
-              {colorTheme === "dark" && (
+              {colorTheme === "light" ? (
+                <ion-icon className="text-white" name="moon-outline"></ion-icon>
+              ) : (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="h-8 w-8"
+                  className="h-8 w-8"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -68,7 +99,7 @@ function Store() {
             <li className="text-3xl pr-6 md:pr-24">
               <Link to="/cart">
                 <ion-icon
-                  class="text-black dark:text-white"
+                  className="text-black dark:text-white"
                   name="cart-outline"
                 ></ion-icon>
               </Link>
@@ -76,45 +107,32 @@ function Store() {
             <li className="text-3xl pr-6 md:pr-24">
               <Link to="/">
                 <ion-icon
-                  class="text-black dark:text-white"
+                  className="text-black dark:text-white"
                   name="home-outline"
                 ></ion-icon>
               </Link>
             </li>
           </ul>
         </div>
-        <div class="bg-slate-200 shadow-2xl dark:bg-[#0c0c0fff] hidden 2xl:block  h-full w-full row-start-2">
-          <p class=" font-oswald tracking-widest text-2xl pt-8 pl-8 mb-2 text-black dark:text-white  dark:bg-[#0c0c0fff] flex w-full justify-start items-start shadow-sm ">
+        <div className="bg-slate-200 shadow-2xl dark:bg-[#0c0c0fff] hidden 2xl:block h-full w-full row-start-2">
+          <p className="font-oswald tracking-widest text-2xl pt-8 pl-8 mb-2 text-black dark:text-white dark:bg-[#0c0c0fff] flex w-full justify-start items-start shadow-sm">
             Filters
           </p>
-          <form
-            class="flex flex-col justify-start items-start gap-3 pl-8 dark:bg-[#0c0c0fff]"
-            id="userSelection"
-          >
+          <form className="flex flex-col justify-start items-start gap-3 pl-8 dark:bg-[#0c0c0fff]" id="userSelection">
             <div>
-              <label
-                htmlFor="search"
-                class="w-12 inline-block pr-10 text-black dark:text-white  dark:bg-[#0c0c0fff]"
-              >
+              <label htmlFor="search" className="w-12 inline-block pr-10 text-black dark:text-white dark:bg-[#0c0c0fff]">
                 Search
               </label>
-              <input
-                id="search"
-                class="ml-5"
-                onChange={(e) => setSearch(e.target.value)}
-              />
+              <input id="search" className="ml-5" onChange={(e) => setSearch(e.target.value)} />
             </div>
             <div>
-              <label
-                htmlFor="rarity"
-                class="w-12 inline-block pr-10 text-black dark:text-white "
-              >
+              <label htmlFor="rarity" className="w-12 inline-block pr-10 text-black dark:text-white">
                 Rarity:
               </label>
               <select
                 form="userSelection"
                 id="rarity"
-                class="ml-5"
+                className="ml-5"
                 onChange={(e) => setRarity(e.target.value)}
               >
                 <option value="not selected">Not Selected</option>
@@ -126,16 +144,13 @@ function Store() {
               </select>
             </div>
             <div>
-              <label
-                htmlFor="type"
-                class="w-12 inline-block pr-10 text-black dark:text-white "
-              >
+              <label htmlFor="type" className="w-12 inline-block pr-10 text-black dark:text-white">
                 Type:
               </label>
               <select
                 form="userSelection"
                 id="type"
-                class="ml-5"
+                className="ml-5"
                 onChange={(e) => setType(e.target.value)}
               >
                 <option value="not selected">Not Selected</option>
@@ -148,19 +163,8 @@ function Store() {
             </div>
           </form>
         </div>
-        <div
-          className="items"
-          class="grid lg:grid-rows-[repeat(3,18rem)] gap-5 auto-rows-[18rem] lg:grid-cols-3 md:grid-cols-2 dark:bg-[#0c0c0fff] pb-10 row-start-2 col-start-2"
-        >
-          {
-            <Cards
-              type={type}
-              rarity={rarity}
-              search={search}
-              items={items}
-              theme={colorTheme}
-            />
-          }
+        <div className="items grid lg:grid-rows-[repeat(3,18rem)] gap-5 auto-rows-[18rem] lg:grid-cols-3 md:grid-cols-2 dark:bg-[#0c0c0fff] pb-10 row-start-2 col-start-2">
+          <Cards type={type} rarity={rarity} search={search} items={items} theme={colorTheme} />
         </div>
       </div>
     </>
