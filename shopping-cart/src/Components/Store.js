@@ -17,47 +17,32 @@ function Store() {
         const data = await response.json();
 
         if (data.status === 200 && data.data.entries) {
-          const formattedItems = data.data.entries.map((entry) => {
-            // Check if entry is a track (music item)
-            if (entry.tracks && entry.tracks.length > 0) {
-              return {
-                itemId: entry.tracks[0].id, // Use the track ID
-                name: entry.tracks[0].title || "Unnamed",
-                description: entry.offerTag?.text || "No description available",
-                price: entry.finalPrice || "N/A",
-                image: entry.tracks[0].albumArt || "https://via.placeholder.com/150",
-              };
-            }
-        
-            // Check if entry is a regular skin/item
-            if (entry.brItems && entry.brItems.length > 0) {
-              return {
-                itemId: entry.brItems[0].id, // Use the item ID from brItems
-                name: entry.brItems[0].name || "Unnamed",
-                description: entry.brItems[0].description || "No description available",
-                price: entry.finalPrice || "N/A",
-                image:
-                  entry.brItems[0].images?.featured ||
-                  entry.brItems[0].images?.icon ||
-                  "https://via.placeholder.com/150",
-              };
-            }
-        
-            // Default fallback (if no valid data found)
-            return {
-              id: entry.offerId,
-              name: "Unnamed",
-              description: "No description available",
-              price: entry.finalPrice || "N/A",
-              image: "https://via.placeholder.com/150",
-            };
-          });
-          setItems(formattedItems);
+            const formattedItems = data.data.entries
+                .filter((entry) => !entry.tracks) // Exclude items with tracks
+                .filter((entry) => {
+                    if (entry.brItems && entry.brItems.length > 0) {
+                        return entry.brItems[0].name && entry.brItems[0].name !== "Unnamed";
+                    }
+                    return false; // Exclude if `brItems` is not present or valid
+                })
+                .map((entry) => ({
+                    itemId: entry.brItems[0].id,
+                    name: entry.brItems[0].name,
+                    description: entry.brItems[0].description || "No description available",
+                    price: entry.finalPrice || "N/A",
+                    image:
+                        entry.brItems[0].images?.featured ||
+                        entry.brItems[0].images?.icon ||
+                        "https://via.placeholder.com/150",
+                }));
+
+            setItems(formattedItems);
         }
-        
-      } catch (error) {
+    } catch (error) {
         console.error("Error fetching shop data:", error);
-      }
+    }
+
+
     }
 
     getItems();
