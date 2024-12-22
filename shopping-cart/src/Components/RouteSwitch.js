@@ -97,14 +97,14 @@ function RouteSwitch() {
 
         <Route path="/shop" element={<Store />} />
         <Route
+          path="/popular/:id"
+          element={<ItemDetails showPrice={false} addToCart={addToCart} />}
+        />
+        <Route
           path="/shop/:id"
-          element={<ItemDetails addToCart={addToCart} price={fetchPrice} />}
+          element={<ItemDetails showPrice={true} addToCart={addToCart} />}
         />
 
-        <Route
-          path="/popular/:id"
-          element={<ItemDetails addToCart={addToCart}/>}
-        />
 
         <Route path="/unreleased" element={<Unreleased />} />
         <Route path="/popular" element={<Popular />} />

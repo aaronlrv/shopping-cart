@@ -4,39 +4,73 @@ import Cart from "./Cart";
 import useDarkMode from "./darkMode";
 import React from "react";
 
-function ItemDetails({ addToCart, price }) {
-  let [item, setItem] = useState(null);
-  let [cost, setCost] = useState(null);
-  let id = useParams().id;
-  console.log(id)
-  let [setTheme, colorTheme] = useDarkMode();
-
+function ItemDetails({ addToCart, showPrice }) {
+  const [item, setItem] = useState(null);
+  const [price, setPrice] = useState(null);
+  const { id } = useParams();
+  const [setTheme, colorTheme] = useDarkMode();
 
   useEffect(() => {
-    async function fetchData() {
+    async function fetchCosmeticDetails() {
       try {
-        
-        console.log("Fetching item details for ID:", id);
-        const response = await fetch(`https://fortnite-api.com/v2/cosmetics/br/${id}`);
-        const data = await response.json();
-  
-        console.log("API response:", data);
-  
-        // Safely access the `data` field
-        if (data.status === 200 && data.data) {
-          setItem(data.data); // Correctly set the item
-          console.log("Item set:", data.data);
+        const cosmeticResponse = await fetch(
+          `https://fortnite-api.com/v2/cosmetics/br/${id}`,
+          { mode: "cors" }
+        );
+        const cosmeticData = await cosmeticResponse.json();
+
+        if (cosmeticData.status === 200 && cosmeticData.data) {
+          setItem(cosmeticData.data);
+
+          if (showPrice) {
+            await fetchPriceFromShop(id);
+          }
         } else {
-          console.error("Unexpected response format:", data);
-          setItem(null); // Set to null if the structure is invalid
+          console.error("Cosmetic details not found.");
         }
       } catch (error) {
-        console.error("Error fetching item details:", error);
-        setItem(null); // Handle fetch errors
+        console.error("Error fetching cosmetic details:", error);
       }
     }
-    fetchData();
-  }, [id]);
+
+    async function fetchPriceFromShop(itemId) {
+      try {
+        console.log("Item ID:", itemId); // Log the item ID being searched
+    
+        const shopResponse = await fetch("https://fortnite-api.com/v2/shop", {
+          mode: "cors",
+        });
+        const shopData = await shopResponse.json();
+    
+        console.log("Shop Data:", shopData); // Log the full shop data response
+    
+        if (shopData.status === 200 && shopData.data.entries) {
+          const entry = shopData.data.entries.find((entry) =>
+            entry.brItems?.some((brItem) => brItem.id === itemId)
+          );
+    
+          console.log("Matching Entry:", entry); // Log the found entry or undefined
+    
+          if (entry) {
+            const finalPrice = entry.finalPrice || "N/A";
+            console.log("Final Price:", finalPrice); // Log the extracted price
+            setPrice(finalPrice);
+          } else {
+            console.warn("Price not found for item:", itemId);
+            setPrice("N/A");
+          }
+        } else {
+          console.error("Shop data not found or invalid structure.");
+        }
+      } catch (error) {
+        console.error("Error fetching price from shop:", error);
+      }
+    }
+    
+    
+
+    fetchCosmeticDetails();
+  }, [id, showPrice]);
 
 
   //   return item.map((x) => {
@@ -115,21 +149,37 @@ function ItemDetails({ addToCart, price }) {
           <div class="bg-[rgba(57,59,140,0.4)] h-screen dark:bg-[#0c0c0fff] lg:h-full lg:overflow-clip">
             <div class="pl-[2.2rem] dark:bg-[#0c0c0fff]">
               <div class="mt-28 h-36 flex flex-col justify-center items-start dark:bg-[#0c0c0fff] ">
-                <h3 class="font-oswald pb-2 text-6xl sm:text-7xl lg:text-8xl   dark:text-white ">
+                <h3 class="font-oswald pb-2 pt-24 text-5xl sm:text-7xl lg:text-8xl   dark:text-white ">
                   {item.name}
                 </h3>
-                <p class="font-oswald text-3xl dark:text-white ">
+                <p class="font-oswald text-3xl dark:text-white pt-2 pb-2 ">
                 {item.description}
                 </p>
-                <p class="font-oswald text-xl dark:text-white ">
+                <p class="font-oswald text-xl dark:text-white">
                   Rarity:  {item.type.displayValue}
                 </p>
-                <p class="font-oswald text-xl dark:text-white ">
+                <p class="font-oswald text-xl dark:text-white">
                   Type: {item.rarity.displayValue}
                 </p>
-                <p class="font-oswald text-xl dark:text-white ">
-                  Introduced: {item.introduction.text}
-                </p>
+                {showPrice && price && (
+                  <p class="font-oswald text-3xl dark:text-white">
+                    Price: {price} VBUCKS
+                  </p>
+                )}
+
+                <div class="flex justify-start- items-center pt-2 pb-2 ">
+                  <button
+                    onClick={() => addToCart(item)}
+                    class="relative inline-flex items-center justify-start inline-block px-5 py-3 overflow-hidden font-bold rounded-full group"
+                  >
+                    <span class="w-36 h-36 rotate-45 translate-x-12 -translate-y-2 absolute left-0 top-0 bg-white opacity-[3%]"></span>
+                    <span class="absolute top-0 left-0 w-48 h-48 -mt-1 transition-all duration-500 ease-in-out rotate-45 -translate-x-56 -translate-y-24 bg-white opacity-100 group-hover:-translate-x-8"></span>
+                    <span class="relative w-full text-left text-white transition-colors duration-200 ease-in-out group-hover:text-gray-900">
+                      Add to cart
+                    </span>
+                    <span class="absolute inset-0 border-2 border-white rounded-full"></span>
+                  </button>
+                </div>
               </div>
               {/*
               <div class="flex mt-28 h-36">
@@ -139,19 +189,8 @@ function ItemDetails({ addToCart, price }) {
               </div>
               */}
               {/* <Link to="/cart" state={{ items: item }}> */}
-              <div class="flex justify-start- items-center ">
-                <button
-                  onClick={() => addToCart(item)}
-                  class="relative inline-flex items-center justify-start inline-block px-5 py-3 overflow-hidden font-bold rounded-full group"
-                >
-                  <span class="w-36 h-36 rotate-45 translate-x-12 -translate-y-2 absolute left-0 top-0 bg-white opacity-[3%]"></span>
-                  <span class="absolute top-0 left-0 w-48 h-48 -mt-1 transition-all duration-500 ease-in-out rotate-45 -translate-x-56 -translate-y-24 bg-white opacity-100 group-hover:-translate-x-8"></span>
-                  <span class="relative w-full text-left text-white transition-colors duration-200 ease-in-out group-hover:text-gray-900">
-                    Add to cart
-                  </span>
-                  <span class="absolute inset-0 border-2 border-white rounded-full"></span>
-                </button>
-              </div>
+
+
               {/* </Link> */}
             </div>
           </div>
