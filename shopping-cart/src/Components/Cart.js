@@ -7,27 +7,21 @@ function Cart({ cart, quantity }) {
   let [setTheme, colorTheme] = useDarkMode();
 
   let userCart = cart;
-  let total = [];
-  userCart.map((x) => {
-    total.push(x.data.item.cost);
-  });
-  let totalCart = total.reduce((accumulator, currentValue) => {
-    return accumulator + currentValue;
-  }, 0);
-  console.log(total);
-  console.log(userCart);
+  let totalCart = userCart.reduce((acc, item) => acc + item.totalCost, 0); // Calculate total price
+  console.log("Cart contents:", userCart);
+
   return (
     <div class="h-screen">
       <div
         className="header-nav"
-        class="h-20 fixed top-0 shadow-md bg-white  dark:bg-[#1a181aff] w-full flex justify-between items-center pl-6 md:pl-24 "
+        class="h-20 fixed top-0 shadow-md bg-white dark:bg-[#1a181aff] w-full flex justify-between items-center pl-6 md:pl-24 "
       >
         <Link to="/shop">
           <p class="font-oswald text-3xl tracking-wider text-black dark:text-white">
             Daily Store
           </p>
         </Link>
-        <ul classname="links" class="flex list-none">
+        <ul class="flex list-none">
           <li
             onClick={() => setTheme(colorTheme)}
             className="text-3xl pr-6 md:pr-24"
@@ -72,55 +66,41 @@ function Cart({ cart, quantity }) {
       </div>
 
       <div class="h-full w-full flex justify-center items-center dark:bg-[#0c0c0fff]">
-        <div class="border-solid border-black shadow-2xl w-[17rem] h-[35rem]  mt-12 pt-3 flex  items-center flex-col overflow-auto sm:h-[40rem] sm:w-[35rem]  lg:w-[50rem] xl:w-[80rem] 2xl:h-[45rem] 2xl:w-[100rem]  dark:bg-zinc-900  ">
-          {userCart.map((x) => {
-            return (
-              <div class=" w-[15rem]  bg-slate-50 p-10 mt-8 rounded-md sm:w-[30rem] 2xl:w-[96rem] lg:w-[45rem] xl:w-[75rem] dark:bg-zinc-700  ">
-                <div className="content" class="flex flex-row items-center">
-                  <div className="left side" class="flex flex-row items-center">
-                    <div>
-                      <img
-                        class="h-24  w-auto 2xl:h-20"
-                        src={x.data.item.images.background}
-                        alt="product"
-                      />
-                    </div>
-                    <div class="hidden pl-6 pr-2 w-10 sm:inline dark:text-white">
-                      {x.data.item.name}
-                    </div>
-                  </div>
-
-                  <div
-                    className="right side"
-                    class="flex flex-col justify-end items-end w-full dark:text-white"
-                  >
-                    <p>{x.quantity + " " + "Items"}</p>
-                    <p>{x.data.item.cost + " " + x.data.item.obtained_type}</p>
-                    <div class="flex gap-10 text-2xl dark:text-white">
-                      <button onClick={(e) => quantity(x, e)}>+ </button>
-                      <button onClick={(e) => quantity(x, e)}>-</button>
-                    </div>
+        <div class="border-solid border-black shadow-2xl w-[17rem] h-[35rem] mt-12 pt-3 flex items-center flex-col overflow-auto sm:h-[40rem] sm:w-[35rem] lg:w-[50rem] xl:w-[80rem] 2xl:h-[45rem] 2xl:w-[100rem] dark:bg-zinc-900">
+          {userCart.map((item, index) => (
+            <div
+              key={index}
+              class="w-[15rem] bg-slate-50 p-10 mt-8 rounded-md sm:w-[30rem] 2xl:w-[96rem] lg:w-[45rem] xl:w-[75rem] dark:bg-zinc-700"
+            >
+              <div class="flex flex-row items-center">
+                <img
+                  class="h-24 w-auto 2xl:h-20"
+                  src={item.images.icon}
+                  alt={item.name}
+                />
+                <div class="pl-6 pr-2 dark:text-white">{item.name}</div>
+                <div class="flex flex-col items-end w-full dark:text-white">
+                  <p>{item.quantity} Items</p>
+                  <p>{item.totalCost} VBUCKS</p>
+                  <div class="flex gap-10 text-2xl dark:text-white">
+                    <button onClick={(e) => quantity(item, e)}>+ </button>
+                    <button onClick={(e) => quantity(item, e)}>-</button>
                   </div>
                 </div>
               </div>
-            );
-          })}
-
-          <div class="pt-12 h-full flex flex-col justify-center">
-            <p class="text-2xl dark:text-white">Total Price: {totalCart}</p>
-            <p class="text-sm italic dark:text-white">
-              *note you cannot checkout unreleased items
-            </p>
-            <div class="pt-4">
-              <button
-                onClick={() => alert("Thank you for shopping!")}
-                class="relative inline-flex items-center justify-center px-10 py-4 overflow-hidden font-mono font-medium tracking-tighter rounded-lg group bg-slate-50 text-black dark:text-white dark:bg-zinc-800 "
-              >
-                <span class="absolute w-0 h-0 transition-all duration-500 ease-out bg-blue-500 rounded-full group-hover:w-56 group-hover:h-56 dark:bg-zinc-300"></span>
-                <span class="absolute inset-0 w-full h-full -mt-1 rounded-lg opacity-30 bg-gradient-to-b from-transparent via-transparent to-zinc-400 dark:to-zinc-700 "></span>
-                <span class="relative">Checkout</span>
-              </button>
             </div>
+          ))}
+
+          <div class="pt-12">
+            <p class="text-2xl dark:text-white">Total Price: {totalCart} VBUCKS</p>
+            <button
+              onClick={() => alert("Thank you for shopping!")}
+              class="relative inline-flex items-center justify-center px-10 py-4 overflow-hidden font-mono font-medium tracking-tighter rounded-lg group bg-slate-50 text-black dark:text-white dark:bg-zinc-800"
+            >
+              <span class="absolute w-0 h-0 transition-all duration-500 ease-out bg-blue-500 rounded-full group-hover:w-56 group-hover:h-56 dark:bg-zinc-300"></span>
+              <span class="absolute inset-0 w-full h-full -mt-1 rounded-lg opacity-30 bg-gradient-to-b from-transparent via-transparent to-zinc-400 dark:to-zinc-700"></span>
+              <span class="relative">Checkout</span>
+            </button>
           </div>
         </div>
       </div>
@@ -129,3 +109,4 @@ function Cart({ cart, quantity }) {
 }
 
 export default Cart;
+

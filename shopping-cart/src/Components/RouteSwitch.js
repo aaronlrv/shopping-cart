@@ -18,31 +18,19 @@ function RouteSwitch() {
 
   async function addToCart(item) {
     let cloneCart = [...cart];
-    console.log(item);
-    console.log(item.name);
-    let price = await fetchPrice(item.id); // Adjusted to use "id"
-
-    const foundItem = cloneCart.find(
-      (x) => item.name === x.name // Adjusted to match JSON structure
-    );
-    if (foundItem === undefined) {
+    console.log("Adding to cart:", item);
+  
+    const foundItem = cloneCart.find((x) => item.name === x.name);
+  
+    if (!foundItem) {
       item.quantity = 1;
+      item.totalCost = item.price;
       cloneCart.push(item);
     } else {
-      console.log(foundItem);
-      foundItem.quantity = foundItem.quantity + 1;
-      foundItem.totalCost = foundItem.totalCost + price; // Adjusted to match "totalCost"
+      foundItem.quantity += 1;
+      foundItem.totalCost += item.price;
     }
-
-    if (
-      item.upcoming === true || // Adjusted to match "upcoming" field
-      item.obtained_type === "none" // Adjusted to match "obtained_type"
-    ) {
-      console.log(item.name);
-      console.log(item.totalCost); // Adjusted to match "totalCost"
-      let index = cloneCart.indexOf(item.name); // Adjusted for "name"
-      cloneCart.splice(index, 1);
-    }
+  
     setCart(cloneCart);
   }
 

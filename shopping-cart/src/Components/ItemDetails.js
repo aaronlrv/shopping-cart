@@ -170,7 +170,7 @@ function ItemDetails({ addToCart, showPrice }) {
                 {showPrice && price && price !== "N/A" && (
                   <div class="flex justify-start items-center pt-2 pb-2">
                     <button
-                      onClick={() => addToCart(item)}
+                      onClick={() => addToCart({ ...item, price })}
                       class="relative inline-flex items-center justify-start inline-block px-5 py-3 overflow-hidden font-bold rounded-full group"
                     >
                       <span class="w-36 h-36 rotate-45 translate-x-12 -translate-y-2 absolute left-0 top-0 bg-white opacity-[3%]"></span>
@@ -181,7 +181,7 @@ function ItemDetails({ addToCart, showPrice }) {
                       <span class="absolute inset-0 border-2 border-white rounded-full"></span>
                     </button>
                   </div>
-                )}
+                )} {/* Conditionally cheks for price and renders the add to cart depending on whether it has a price or not*/} 
               </div>
               {/*
               <div class="flex mt-28 h-36">
