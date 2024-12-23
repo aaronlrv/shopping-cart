@@ -1,5 +1,9 @@
 {
   "dependencies": {
+    "react-scripts": "^5.0.1",
     "react-typical": "^0.1.3"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.16"
   }
 }
