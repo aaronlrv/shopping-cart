@@ -4,16 +4,18 @@ import { Link } from "react-router-dom";
 function Cards({ type, rarity, search, items, theme }) {
   console.log("Theme:", theme);
   console.log("Rarity:", rarity);
+  console.log("Type:", type);
   console.log("Search:", search);
+  console.log(items)
 
   // Filter items based on search input, rarity, and type
   const filteredItems = items.filter((item) => {
     const matchesSearch =
       !search || item.name.toLowerCase().includes(search.toLowerCase());
     const matchesRarity =
-      !rarity || rarity === "not selected" || item.rarity === rarity;
+      !rarity || rarity === "not selected" || item.rarity?.toLowerCase() === rarity.toLowerCase();
     const matchesType =
-      !type || type === "not selected" || item.type === type;
+      !type || type === "not selected" || item.type?.toLowerCase() === type.toLowerCase();
 
     return matchesSearch && matchesRarity && matchesType;
   });
@@ -24,7 +26,7 @@ function Cards({ type, rarity, search, items, theme }) {
         <Link to={`/shop/${x.itemId}`} key={x.itemId}>
           <div
             className={`card h-72 gap-6 m-5 grid grid-rows-[100,100] grid-cols-2 shadow-xl transition ease-in-out delay-100 hover:scale-105 duration-300 ${
-              theme === "dark" ? "bg-slate-100" : "bg-[#1f2128]" 
+              theme === "light" ? "bg-[#1f2128]" : "bg-slate-100"
             }`}
           >
             <div className="h-full flex justify-start items-center row-span-2">
@@ -33,14 +35,14 @@ function Cards({ type, rarity, search, items, theme }) {
             <div className="flex flex-col justify-center items-center">
               <p
                 className={`font-chinese text-3xl tracking-wider ${
-                  theme === "dark" ? "text-black"   : "text-white"
+                  theme === "light" ? "text-white" : "text-black"
                 }`}
               >
                 {x.name}
               </p>
               <p
                 className={`${
-                  theme === "dark" ?   "text-gray-700" : "text-blue-200"
+                  theme === "light" ? "text-blue-200" : "text-gray-700"
                 }`}
               >
                 {x.description}

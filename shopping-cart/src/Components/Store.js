@@ -34,6 +34,8 @@ function Store() {
                 entry.brItems[0].images?.featured ||
                 entry.brItems[0].images?.icon ||
                 "https://via.placeholder.com/150",
+              rarity: entry.brItems[0].rarity?.displayValue || "Unknown",
+              type: entry.brItems[0].type?.displayValue || "Unknown",
             }));
   
           // Remove duplicates based on itemId
@@ -116,7 +118,7 @@ function Store() {
               <input id="search" className="ml-5" onChange={(e) => setSearch(e.target.value)} />
             </div>
             <div>
-              <label htmlFor="rarity" className="w-12 inline-block pr-10 text-black dark:text-white">
+              <label htmlFor="Type" className="w-12 inline-block pr-10 text-black dark:text-white">
                 Rarity:
               </label>
               <select

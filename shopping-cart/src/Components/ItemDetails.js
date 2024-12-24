@@ -156,10 +156,10 @@ function ItemDetails({ addToCart, showPrice }) {
                 {item.description}
                 </p>
                 <p class="font-oswald text-xl dark:text-white">
-                  Rarity:  {item.type.displayValue}
+                  Type:  {item.type.displayValue}
                 </p>
                 <p class="font-oswald text-xl dark:text-white">
-                  Type: {item.rarity.displayValue}
+                  Rarity: {item.rarity.displayValue}
                 </p>
                 {showPrice && price && (
                   <p class="font-oswald text-3xl dark:text-white">
