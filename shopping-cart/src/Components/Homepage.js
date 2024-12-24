@@ -41,9 +41,6 @@ function Homepage() {
 
           <div class="font-chinese text-xl mt-14  flex col text-white gap-[50px] justify-center items-center w-full shadow-2xl">
             <ul class="flex col gap-[50px]">
-              <Link to="/unreleased">
-                <li class="hover:animate-pulse">Unreleased Items</li>
-              </Link>
               <Link to="/shop">
                 <li class="hover:animate-pulse">Daily Shop</li>
               </Link>
