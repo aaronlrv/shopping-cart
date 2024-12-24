@@ -15,38 +15,43 @@ function Store() {
       try {
         const response = await fetch("https://fortnite-api.com/v2/shop", { mode: "cors" });
         const data = await response.json();
-
+  
         if (data.status === 200 && data.data.entries) {
-            const formattedItems = data.data.entries
-                .filter((entry) => !entry.tracks) // Exclude items with tracks
-                .filter((entry) => {
-                    if (entry.brItems && entry.brItems.length > 0) {
-                        return entry.brItems[0].name && entry.brItems[0].name !== "Unnamed";
-                    }
-                    return false; // Exclude if `brItems` is not present or valid
-                })
-                .map((entry) => ({
-                    itemId: entry.brItems[0].id,
-                    name: entry.brItems[0].name,
-                    description: entry.brItems[0].description || "No description available",
-                    price: entry.finalPrice || "N/A",
-                    image:
-                        entry.brItems[0].images?.featured ||
-                        entry.brItems[0].images?.icon ||
-                        "https://via.placeholder.com/150",
-                }));
-
-            setItems(formattedItems);
+          const formattedItems = data.data.entries
+            .filter((entry) => !entry.tracks) // Exclude items with tracks
+            .filter((entry) => {
+              if (entry.brItems && entry.brItems.length > 0) {
+                return entry.brItems[0].name && entry.brItems[0].name !== "Unnamed";
+              }
+              return false; // Exclude if `brItems` is not present or valid
+            })
+            .map((entry) => ({
+              itemId: entry.brItems[0].id,
+              name: entry.brItems[0].name,
+              description: entry.brItems[0].description || "No description available",
+              price: entry.finalPrice || "N/A",
+              image:
+                entry.brItems[0].images?.featured ||
+                entry.brItems[0].images?.icon ||
+                "https://via.placeholder.com/150",
+            }));
+  
+          // Remove duplicates based on itemId
+          const uniqueItems = formattedItems.filter(
+            (item, index, self) =>
+              index === self.findIndex((t) => t.itemId === item.itemId)
+          );
+  
+          setItems(uniqueItems);
         }
-    } catch (error) {
+      } catch (error) {
         console.error("Error fetching shop data:", error);
+      }
     }
-
-
-    }
-
+  
     getItems();
   }, []);
+  
 
   return (
     <>
