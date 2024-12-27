@@ -34,47 +34,30 @@ function RouteSwitch() {
     setCart(cloneCart);
   }
 
-  async function quantity(x, e) {
+  async function quantity(item, e) {
     let cloneCart = [...cart];
-    let item = x;
-    let price = await fetchPrice(item.id); // Adjusted to use "id"
-    const foundItem = cloneCart.find(
-      (x) => item.name === x.name // Adjusted to match JSON structure
-    );
-
+    const foundItem = cloneCart.find((x) => x.name === item.name);
+    const foundItemInitialPrice = foundItem.totalCost
+  
+    if (!foundItem) return; // Safety check in case the item doesn't exist
+  
     if (e.target.innerText === "+") {
-      foundItem.quantity = foundItem.quantity + 1;
-      foundItem.totalCost = foundItem.totalCost + price; // Adjusted to match "totalCost"
-    } else {
-      foundItem.quantity = foundItem.quantity - 1;
-      foundItem.totalCost = foundItem.totalCost - price; // Adjusted to match "totalCost"
-
-      if (foundItem.quantity === 0 || foundItem.totalCost === 0) {
-        let index = cloneCart.indexOf(foundItem.name); // Adjusted for "name"
-        cloneCart.splice(index, 1);
+      // Increment quantity
+      foundItem.quantity += 1;
+      foundItem.totalCost += foundItem.price; // Update total cost
+    } else if (e.target.innerText === "-") {
+      // Decrement quantity
+      if (foundItem.quantity > 1) {
+        foundItem.quantity -= 1;
+        foundItem.totalCost -= foundItem.price; // Update total cost
+      } else {
+        // Remove item if quantity is 1 and minus is clicked
+        cloneCart = cloneCart.filter((x) => x.name !== item.name);
       }
     }
-
-    console.log(x);
-    console.log(e.target.innerText);
-    console.log(price);
-    setCart(cloneCart);
+  
+    setCart(cloneCart); // Update cart state
   }
-
-  async function fetchPrice(id) {
-    console.log(id);
-    let data = await fetch(
-      `https://fortnite-api.com/v2/cosmetics/br/${id}`, // Adjusted API call
-      { mode: "cors" }
-    );
-
-    let dataJson = await data.json();
-    console.log(dataJson);
-
-    let price = dataJson.data?.rarity?.value === "gaminglegends" ? 1500 : 800; // Example logic preserved
-    return price;
-  }
-
 
   return (
     <HashRouter>
