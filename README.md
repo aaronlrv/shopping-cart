@@ -9,14 +9,14 @@ This project is a Mock Ecommerce store built using React.
 
 ## Highlight
 
-This store uses the <a href="https://fortniteapi.com"> Fortnite API </a> to generate new Skins, Cosmetics and Emotes for purchase daily. It also features a integrated light and dark mode and is fully responsive
+This store uses the <a href="https://fortnite-api.com/"> Fortnite API </a> to generate new Skins, Cosmetics and Emotes for purchase daily. It also features a integrated light and dark mode and is fully responsive
 
 ## My personal Takeways
 I learned how to utilize react router and how to generate multiple paths based on ids, along with knowledge of how to use React Router with github pages. I also learned responsive design and how to create an aestethically pleasing light and dark mode using TailwindCSS.
 
 ## How to preview
 
-Use the Github pages environment and view the latest deployment of the project or use this live repo link https://aaronlrv.github.io/shopping-cart/
+Use the latest deployment section, Or use this updated <a href="https://shopping-cart-brown-rho.vercel.app/"> Preview Link </a>
 
 ## Tech/ Framework Used
 <p align="left"> 
@@ -30,6 +30,10 @@ Use LocalStorage to save light mode or dark mode preferences across multiple pag
 Add live previews/gifs on click of each card rather than static images (For emotes/pickaxes)
 
 Create filter tab design that is mobile friendly to allow mobile users to filter through cards.
+
+Allow the website to be less laggy, Make responses feel way more instant and api calls to feel way more refined
+
+Implement loading screens where necessary, During pricing api calls, Items loading in the store etc.
 
 ## Contact info
 Feel free to contact me here! aaronvitharanage@gmail.com
